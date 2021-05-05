@@ -1,0 +1,48 @@
+{
+  // Place your WindowsPowerShell ワークスペース snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+  // Placeholders with the same ids are connected.
+  // Example:
+  "PowerShell Module": {
+    "scope": "powershell",
+    "prefix": "module",
+    "body": [
+      "function $1 {",
+      "  <#",
+      "  .SYNOPSIS",
+      "  ここに概要を書きます",
+      "  ",
+      "  .DESCRIPTION",
+      "  ここに説明を書きます",
+      "  ",
+      "  .EXAMPLE",
+      "  PS> $1 ",
+      "  ここに具体的な引数の例と解説を書きます(複数記述可)",
+      "  ",
+      "  .EXAMPLE",
+      "  PS> $1 ",
+      "  ここに具体的な引数の例と解説を書きます(複数記述可)",
+      "  ",
+      "  .PARAMETER 引数名",
+      "  ここら引数の説明を書きます(複数記述可)",
+      "  ",
+      "  .LINK",
+      "  関連するリンクの URL を書きます",
+      "  http://www.vwnet.jp/Windows/PowerShell/SupportGetHelp.htm",
+      "  #>",
+      "  Param(",
+      "    [Alias('h')][switch] $$Help",
+      "  )",
+      "  if($$Help){ Get-Help $1; return }",
+      "",
+      "  ##### WRITE CODE HERE #####",
+      "}",
+      "Export-ModuleMember -Function $1",
+			""
+    ],
+    "description": "Powershell Module Template"
+  }
+}

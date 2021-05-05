@@ -1,0 +1,53 @@
+= Helpコメントの書き方メモ 
+:author: <www.0923.tacos@gmail.com>
+//:toc: left
+:toc-title: Index
+:icons: font
+:xrefstyle: basic
+:sectnums:
+:source-highlighter: highlightjs
+
+
+== 概要
+PowerShellのヘルプコメントの書き方まとめ
+
+スクリプト中にコメントでヘルプ文を書くとPowerShellの `Get-Help` コマンドで表示できるので活用していく。
+また、スクリプトのREADME代わりにもなるので個別にドキュメントを書く替わりにする。
+
+ヘルプ付きモジュールのテンプレートファイル (`TEMPLATE.psm1`) と、これをvscodeのローカルスニペットへの追加設定 (`.vscode/ps1.code-snippets`) を用意しているのでそこを起点に作成する。
+
+
+== 書き方
+詳しくは link:https://www.vwnet.jp/Windows/PowerShell/SupportGetHelp.htm[ここ] にだいたい書いてある
+
+
+=== 構文
+[source, ps1]
+....
+<#
+.ヘルプキーワード
+ヘルプコメント
+
+.ヘルプキーワード
+ヘルプコメント
+
+~
+#>
+....
+
+
+=== ヘルプキーワード
+
+[cols="1,2,2", options="header"]
+|===
+|Keyword     |意味         |備考
+|SYNOPSIS    |概要         | --
+|DESCRIPTION |説明         | --
+|EXAMPLE     |例　         |複数記述可能
+|PARAMETER   |パラメーター   |複数記述可能
+|LINK        |関連するリンク　| --
+|===
+
+上記以外に「名前」「注釈」「構文」もあるがこれらはスクリプト名やParam定義から自動的に決まる
+
+
