@@ -1,11 +1,4 @@
 {
-  // Place your WindowsPowerShell ワークスペース snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
-  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
-  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
-  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
-  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
-  // Placeholders with the same ids are connected.
-  // Example:
   "PowerShell Module": {
     "scope": "powershell",
     "prefix": "module",
@@ -13,36 +6,60 @@
       "function $1 {",
       "  <#",
       "  .SYNOPSIS",
-      "  ここに概要を書きます",
+      "    <コマンドの概要>",
       "  ",
       "  .DESCRIPTION",
-      "  ここに説明を書きます",
+      "    <コマンドの説明>",
+      "  ",
+      "  .PARAMETER Help|h",
+      "    ヘルプを表示する",
+      "  ",
+      "  .PARAMETER <PARAM>",
+      "    <パラメータの説明>",
+      "  ",
+      "  .PARAMETER CommonParameters",
+      "    サポートしていません",
+      "  ",
+      "  .INPUTS",
+      "    <入力の概要>",
+      "  ",
+      "  .OUTPUTS",
+      "    <出力の概要>",
       "  ",
       "  .EXAMPLE",
-      "  PS> $1 ",
-      "  ここに具体的な引数の例と解説を書きます(複数記述可)",
+      "    PS> $1",
+      "      <コマンドのみ実行時の処理内容>",
       "  ",
       "  .EXAMPLE",
-      "  PS> $1 ",
-      "  ここに具体的な引数の例と解説を書きます(複数記述可)",
+      "    PS> $1 -Help",
+      "      ヘルプを表示する",
       "  ",
-      "  .PARAMETER 引数名",
-      "  ここら引数の説明を書きます(複数記述可)",
+      "  .EXAMPLE",
+      "    PS> $1 <PARAM>",
+      "      <パラメータを指定したときの処理内容>",
       "  ",
       "  .LINK",
-      "  関連するリンクの URL を書きます",
-      "  http://www.vwnet.jp/Windows/PowerShell/SupportGetHelp.htm",
+      "    参考: <参考サイト概要>",
+      "    <URL>",
       "  #>",
       "  Param(",
       "    [Alias('h')][switch] $$Help",
       "  )",
       "  if($$Help){ Get-Help $1; return }",
       "",
-      "  ##### WRITE CODE HERE #####",
+      "  #------------------------------",
+      "  # Main処理",
+      "  #------------------------------",
+      "  $2",
       "}",
+      "# 関数をそのままExportする場合",
       "Export-ModuleMember -Function $1",
-			""
+      "",
+      "# Aliasも設定してExportする場合",
+      "# Set-Alias <alias> $1",
+      "# Export-ModuleMember -Function $1 -Alias <alias>",
+      ""
     ],
-    "description": "Powershell Module Template"
+    "description": "PowerShell Module Template"
   }
 }
