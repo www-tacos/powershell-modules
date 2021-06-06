@@ -94,5 +94,5 @@ function Get-ItemList {
 # Export-ModuleMember -Function Get-ItemList
 
 # Aliasも設定してExportする場合
-Set-Alias ls Get-ItemList
-Export-ModuleMember -Function Get-ItemList -Alias ls
+Set-Alias ll Get-ItemList
+Export-ModuleMember -Function Get-ItemList -Alias ll
