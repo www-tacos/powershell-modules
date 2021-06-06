@@ -1,33 +1,33 @@
 function Invoke-Scrcpy {
   <#
   .SYNOPSIS
-    Scrcpyã®ãƒ©ãƒƒãƒ‘ãƒ¼ã‚³ãƒãƒ³ãƒ‰
+    Scrcpy‚Ìƒ‰ƒbƒp[ƒRƒ}ƒ“ƒh
 
   .DESCRIPTION
-    Scrcpyã®å„ç¨®ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’å¯¾è©±å½¢å¼ã§é †æ¬¡è¨­å®šã—ã¦ã„ããƒ©ãƒƒãƒ‘ãƒ¼ã‚³ãƒãƒ³ãƒ‰
+    Scrcpy‚ÌŠeíƒIƒvƒVƒ‡ƒ“‚ğ‘Î˜bŒ`®‚Å‡Ÿİ’è‚µ‚Ä‚¢‚­ƒ‰ƒbƒp[ƒRƒ}ƒ“ƒh
 
   .PARAMETER Help|h
-    ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã™ã‚‹
+    ƒwƒ‹ƒv‚ğ•\¦‚·‚é
 
   .PARAMETER CommonParameters
-    ã‚µãƒãƒ¼ãƒˆã—ã¦ã„ã¾ã›ã‚“
+    ƒTƒ|[ƒg‚µ‚Ä‚¢‚Ü‚¹‚ñ
 
   .INPUTS
-    å¯¾è©±å½¢å¼ã§å„ç¨®ã‚ªãƒ—ã‚·ãƒ§ãƒ³å€¤ã‚’å—ã‘å–ã‚‹
+    ‘Î˜bŒ`®‚ÅŠeíƒIƒvƒVƒ‡ƒ“’l‚ğó‚¯æ‚é
 
   .OUTPUTS
-    æŒ‡å®šã•ã‚ŒãŸã‚ªãƒ—ã‚·ãƒ§ãƒ³ã§scrcpyã‚’å®Ÿè¡Œã™ã‚‹
+    w’è‚³‚ê‚½ƒIƒvƒVƒ‡ƒ“‚Åscrcpy‚ğÀs‚·‚é
 
   .EXAMPLE
     PS> Invoke-Scrcpy
-      å¯¾è©±ãƒ¢ãƒ¼ãƒ‰ã‚’é–‹å§‹ã™ã‚‹
+      ‘Î˜bƒ‚[ƒh‚ğŠJn‚·‚é
 
   .EXAMPLE
     PS> Invoke-Scrcpy -Help
-      ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã™ã‚‹
+      ƒwƒ‹ƒv‚ğ•\¦‚·‚é
 
   .LINK
-    å‚è€ƒ: Scrcpy å…¬å¼ãƒªãƒã‚¸ãƒˆãƒª
+    Ql: Scrcpy Œö®ƒŠƒ|ƒWƒgƒŠ
     https://github.com/Genymobile/scrcpy
   #>
   Param(
@@ -36,10 +36,10 @@ function Invoke-Scrcpy {
   if($Help){ Get-Help Invoke-Scrcpy; return }
 
   #------------------------------
-  # Mainå‡¦ç†
+  # Mainˆ—
   #------------------------------
   $scrcpy = 'scrcpy.exe'
-  # scrcpyã‚³ãƒãƒ³ãƒ‰ãŒç’°å¢ƒå¤‰æ•°ã«è¨­å®šã•ã‚Œã¦ã„ãªã‘ã‚Œã°çµ‚äº†
+  # scrcpyƒRƒ}ƒ“ƒh‚ªŠÂ‹«•Ï”‚Éİ’è‚³‚ê‚Ä‚¢‚È‚¯‚ê‚ÎI—¹
   try {
     Get-Command $scrcpy > $null
   }
@@ -59,14 +59,14 @@ function Invoke-Scrcpy {
     while ($true) {
       Write-Host "`n--------------------------------------------------"
       Write-Host "${id}. ${title}"
-      Write-Host "    è©³ç´°ã€€ã€€ : ${desc}"
-      Write-Host "    å…¥åŠ›è¦å‰‡ : ${pattern}"
-      Write-Host "    ï¼ˆæŒ‡å®šã—ãªã„å ´åˆã¯ä½•ã‚‚å…¥åŠ›ã›ãšã«Enterï¼‰"
-      $read = Read-Host -Prompt 'å…¥åŠ›'
+      Write-Host "    Ú×@@ : ${desc}"
+      Write-Host "    “ü—Í‹K‘¥ : ${pattern}"
+      Write-Host "    iw’è‚µ‚È‚¢ê‡‚Í‰½‚à“ü—Í‚¹‚¸‚ÉEnterj"
+      $read = Read-Host -Prompt '“ü—Í'
       if($read -eq '' -or $read -match $pattern) {
         return ${read}
       } else {
-        Write-Host -NoNewline "ç„¡åŠ¹ãªå…¥åŠ›ã§ã™ã€‚å†å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚" -ForegroundColor Red
+        Write-Host -NoNewline "–³Œø‚È“ü—Í‚Å‚·BÄ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B" -ForegroundColor Red
         continue
       }
     }
@@ -77,8 +77,8 @@ function Invoke-Scrcpy {
 
   $bitrate = getParam `
     (++$i) `
-    "ãƒ“ãƒƒãƒˆãƒ¬ãƒ¼ãƒˆ [bps]" `
-    "æ•°å€¤ã¾ãŸã¯å˜ä½ä»˜ãæ•°å€¤ã§å…¥åŠ›ï¼ˆ8000000, 8M, 8mï¼‰" `
+    "ƒrƒbƒgƒŒ[ƒg [bps]" `
+    "”’l‚Ü‚½‚Í’PˆÊ•t‚«”’l‚Å“ü—Íi8000000, 8M, 8mj" `
     "^[1-9][0-9]*[kKmM]?$"
   if($bitrate) {
     $command += " -b${bitrate}"
@@ -86,8 +86,8 @@ function Invoke-Scrcpy {
 
   $maxsize = getParam `
     (++$i) `
-    "é•·è¾ºã®é•·ã• [px]" `
-    "æ•°å€¤ã§å…¥åŠ›ï¼ˆçŸ­è¾ºã¯è‡ªå‹•ç®—å‡ºã•ã‚Œã‚‹ï¼‰" `
+    "’·•Ó‚Ì’·‚³ [px]" `
+    "”’l‚Å“ü—Íi’Z•Ó‚Í©“®Zo‚³‚ê‚éj" `
     "^[1-9][0-9]*$"
   if($maxsize) {
     $command += " -m${maxsize}"
@@ -95,8 +95,8 @@ function Invoke-Scrcpy {
 
   $maxfps = getParam `
     (++$i) `
-    "æœ€å¤§ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¬ãƒ¼ãƒˆ [fps]" `
-    "æ•°å€¤ã§å…¥åŠ›" `
+    "Å‘åƒtƒŒ[ƒ€ƒŒ[ƒg [fps]" `
+    "”’l‚Å“ü—Í" `
     "^[1-9][0-9]*$"
   if($maxfps) {
     $command += " --max-fps ${maxfps}"
@@ -104,8 +104,8 @@ function Invoke-Scrcpy {
 
   $fullscreen = getParam `
     (++$i) `
-    "ãƒ•ãƒ«ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã®æœ‰ç„¡" `
-    "Boolå€¤ã§å…¥åŠ›" `
+    "ƒtƒ‹ƒXƒNƒŠ[ƒ“‚Ì—L–³" `
+    "Bool’l‚Å“ü—Í" `
     "^[tT]rue|[fF]alse$"
   if($fullscreen) {
     $command += " -f"
@@ -114,9 +114,9 @@ function Invoke-Scrcpy {
   # Invoke-Expression $command
   Write-Output $command
 }
-# é–¢æ•°ã‚’ãã®ã¾ã¾Exportã™ã‚‹å ´åˆ
+# ŠÖ”‚ğ‚»‚Ì‚Ü‚ÜExport‚·‚éê‡
 Export-ModuleMember -Function Invoke-Scrcpy
 
-# Aliasã‚‚è¨­å®šã—ã¦Exportã™ã‚‹å ´åˆ
+# Alias‚àİ’è‚µ‚ÄExport‚·‚éê‡
 # Set-Alias <alias> Invoke-Scrcpy
 # Export-ModuleMember -Function Invoke-Scrcpy -Alias <alias>
