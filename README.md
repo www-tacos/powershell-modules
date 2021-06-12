@@ -37,8 +37,12 @@ if(Test-Path $MyModules -PathType Container) {
       'Invoke-Scrcpy'
     )
   } | ForEach-Object {
-    Import-Module $_.FullName -Force
-    Write-Host "Imported : $($_.FullName)"
+    try {
+      Import-Module $_.FullName -Force
+      Write-Host "Imported: $($_.BaseName)"
+    } catch {
+      Write-Host "Not Imported: $($_.BaseName)"
+    }
   }
 }
 ```
