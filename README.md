@@ -22,6 +22,7 @@
 ### デフォルトのモジュールパスに配置する方法
 - `$env:PSModulePath`に設定されているディレクトリにモジュールを配置すれば自動で読み込まれる
 
+
 ### プロファイルで明示的に読み込む方法
 - `$PROFILE`に設定されている設定ファイルに読み込みスクリプトを追記する
   - Windows Powershellの場合 : `${env:HOMEPATH}\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1`
