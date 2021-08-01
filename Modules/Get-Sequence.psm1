@@ -1,60 +1,60 @@
 function Get-Sequence {
   <#
   .SYNOPSIS
-    Bashã®seqé¢¨ã‚³ãƒãƒ³ãƒ‰
+    Bash‚Ìseq•—ƒRƒ}ƒ“ƒh
 
   .DESCRIPTION
-    ä»»æ„ã®ã‚¹ãƒ†ãƒƒãƒ—æ•°ã®é †åˆ—é…åˆ—ã‚’è¿”ã™
-    ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ã‚¹ãƒ†ãƒƒãƒ—æ•°ã¯1
+    ”CˆÓ‚ÌƒXƒeƒbƒv”‚Ì‡—ñ”z—ñ‚ğ•Ô‚·
+    ƒfƒtƒHƒ‹ƒg‚ÌƒXƒeƒbƒv”‚Í1
 
   .PARAMETER Help|h
-    ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã™ã‚‹
+    ƒwƒ‹ƒv‚ğ•\¦‚·‚é
 
   .PARAMETER Start
-    é †åˆ—ã®å§‹ã¾ã‚Šã®å€¤ï¼ˆé †åˆ—ã«å«ã¾ã‚Œã‚‹ï¼‰
-    ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¯0
+    ‡—ñ‚Ìn‚Ü‚è‚Ì’li‡—ñ‚ÉŠÜ‚Ü‚ê‚éj
+    ƒfƒtƒHƒ‹ƒg‚Í0
 
     .PARAMETER End
-    é †åˆ—ã®çµ‚ã‚ã‚Šã®å€¤ï¼ˆé †åˆ—ã«å«ã¾ã‚Œã‚‹ï¼‰
-    ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¯0
+    ‡—ñ‚ÌI‚í‚è‚Ì’li‡—ñ‚ÉŠÜ‚Ü‚ê‚éj
+    ƒfƒtƒHƒ‹ƒg‚Í0
 
   .PARAMETER Step
-    é †åˆ—ã®å¢—åŠ é‡
-    ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¯1
+    ‡—ñ‚Ì‘‰Á—Ê
+    ƒfƒtƒHƒ‹ƒg‚Í1
 
   .PARAMETER CommonParameters
-    ã‚µãƒãƒ¼ãƒˆã—ã¦ã„ã¾ã›ã‚“
+    ƒTƒ|[ƒg‚µ‚Ä‚¢‚Ü‚¹‚ñ
 
   .INPUTS
-    æ•´æ•°ã®ã¿ã‚µãƒãƒ¼ãƒˆã€‚å°‘æ•°ã®å ´åˆã¯intã«ã‚­ãƒ£ã‚¹ãƒˆã•ã‚Œã‚‹ï¼ˆå››æ¨äº”å…¥ï¼‰
-    è² ã®æ•°ã‚‚ã‚µãƒãƒ¼ãƒˆ
-    StartãŒEndã‚ˆã‚Šå°ã•ã„å ´åˆã¯é™é †ã®æ•°åˆ—ã«ãªã‚‹
+    ®”‚Ì‚İƒTƒ|[ƒgB­”‚Ìê‡‚Íint‚ÉƒLƒƒƒXƒg‚³‚ê‚éilÌŒÜ“üj
+    •‰‚Ì”‚àƒTƒ|[ƒg
+    Start‚ªEnd‚æ‚è¬‚³‚¢ê‡‚Í~‡‚Ì”—ñ‚É‚È‚é
 
   .OUTPUTS
-    inté…åˆ—ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+    int”z—ñƒIƒuƒWƒFƒNƒg
 
   .EXAMPLE
     PS> Get-Sequence
-      0 ã‚’è¿”ã™
+      0 ‚ğ•Ô‚·
 
   .EXAMPLE
     PS> Get-Sequence -Help
-      ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã™ã‚‹
+      ƒwƒ‹ƒv‚ğ•\¦‚·‚é
 
   .EXAMPLE
     PS> Get-Sequence 1 3
-      é…åˆ— {1,2,3} ã‚’è¿”ã™
+      ”z—ñ {1,2,3} ‚ğ•Ô‚·
 
   .EXAMPLE
     PS> Get-Sequence 1 5 2
-      é…åˆ— {1,3,5} ã‚’è¿”ã™
+      ”z—ñ {1,3,5} ‚ğ•Ô‚·
 
   .EXAMPLE
     PS> Get-Sequence 5 -5 3
-      é…åˆ— {5,2,-1,-4} ã‚’è¿”ã™
+      ”z—ñ {5,2,-1,-4} ‚ğ•Ô‚·
 
   .LINK
-    å‚è€ƒ: PowerShellã§ã®é †åˆ—ã®ä½œæˆ
+    Ql: PowerShell‚Å‚Ì‡—ñ‚Ìì¬
     https://stackoverflow.com/questions/34028471/powershell-number-sequencing
   #>
   Param(
@@ -66,7 +66,7 @@ function Get-Sequence {
   if($Help){ Get-Help Get-Sequence; return }
 
   #------------------------------
-  # Mainå‡¦ç†
+  # Mainˆ—
   #------------------------------
   return ${Start}..${End} |
   ForEach-Object -Begin {
@@ -81,9 +81,9 @@ function Get-Sequence {
     return ${res}
   }
 }
-# é–¢æ•°ã‚’ãã®ã¾ã¾Exportã™ã‚‹å ´åˆ
+# ŠÖ”‚ğ‚»‚Ì‚Ü‚ÜExport‚·‚éê‡
 # Export-ModuleMember -Function Get-Sequence
 
-# Aliasã‚‚è¨­å®šã—ã¦Exportã™ã‚‹å ´åˆ
+# Alias‚àİ’è‚µ‚ÄExport‚·‚éê‡
 Set-Alias seq Get-Sequence
 Export-ModuleMember -Function Get-Sequence -Alias seq

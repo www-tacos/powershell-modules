@@ -1,55 +1,55 @@
 function Get-ItemList {
   <#
   .SYNOPSIS
-    æŒ‡å®šãƒ‘ã‚¹ã®ã‚¢ã‚¤ãƒ†ãƒ ã‚’è¡¨ç¤ºã™ã‚‹
+    w’èƒpƒX‚ÌƒAƒCƒeƒ€‚ğ•\¦‚·‚é
 
   .DESCRIPTION
-    Bashã®lsã‚³ãƒãƒ³ãƒ‰ã®ã‚ˆã†ã«æŒ‡å®šãƒ‘ã‚¹ã®ã‚¢ã‚¤ãƒ†ãƒ åã®ã¿ã‚’è¡¨ç¤ºã™ã‚‹
-    ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ã¯ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã¸è¡¨ç¤ºã™ã‚‹è¨­å®šã§ã€ãã®å ´åˆã¯è‰²ä»˜ãã§è¡¨ç¤ºã™ã‚‹
-    ãƒªãƒ€ã‚¤ãƒ¬ã‚¯ãƒˆãƒ¢ãƒ¼ãƒ‰ã«ã—ãŸå ´åˆã¯ Get-ChildItem ã‚’æŒ‡å®šãƒ‘ã‚¹ã«å¯¾ã—ã¦å®Ÿè¡Œã—ãŸçµæœã‚’è¿”ã™
+    Bash‚ÌlsƒRƒ}ƒ“ƒh‚Ì‚æ‚¤‚Éw’èƒpƒX‚ÌƒAƒCƒeƒ€–¼‚Ì‚İ‚ğ•\¦‚·‚é
+    ƒfƒtƒHƒ‹ƒg‚Å‚ÍƒRƒ“ƒ\[ƒ‹‚Ö•\¦‚·‚éİ’è‚ÅA‚»‚Ìê‡‚ÍF•t‚«‚Å•\¦‚·‚é
+    ƒŠƒ_ƒCƒŒƒNƒgƒ‚[ƒh‚É‚µ‚½ê‡‚Í Get-ChildItem ‚ğw’èƒpƒX‚É‘Î‚µ‚ÄÀs‚µ‚½Œ‹‰Ê‚ğ•Ô‚·
 
   .PARAMETER Help|h
-    ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã™ã‚‹
+    ƒwƒ‹ƒv‚ğ•\¦‚·‚é
 
   .PARAMETER Path
-    ã‚¢ã‚¤ãƒ†ãƒ ãƒªã‚¹ãƒˆã‚’è¡¨ç¤ºã™ã‚‹å¯¾è±¡ã®ãƒ‘ã‚¹
-    ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’æŒ‡å®šã—ãŸå ´åˆã¯ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªå†…ã®ã‚¢ã‚¤ãƒ†ãƒ åã‚’å¯¾è±¡ã¨ã™ã‚‹
-    ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æŒ‡å®šã—ãŸå ´åˆã¯ãã®ãƒ•ã‚¡ã‚¤ãƒ«åã‚’å¯¾è±¡ã¨ã™ã‚‹
+    ƒAƒCƒeƒ€ƒŠƒXƒg‚ğ•\¦‚·‚é‘ÎÛ‚ÌƒpƒX
+    ƒfƒBƒŒƒNƒgƒŠ‚ğw’è‚µ‚½ê‡‚ÍƒfƒBƒŒƒNƒgƒŠ“à‚ÌƒAƒCƒeƒ€–¼‚ğ‘ÎÛ‚Æ‚·‚é
+    ƒtƒ@ƒCƒ‹‚ğw’è‚µ‚½ê‡‚Í‚»‚Ìƒtƒ@ƒCƒ‹–¼‚ğ‘ÎÛ‚Æ‚·‚é
 
   .PARAMETER Redirect
-    ãƒªãƒ€ã‚¤ãƒ¬ã‚¯ãƒˆãƒ¢ãƒ¼ãƒ‰ã®ã‚¹ã‚¤ãƒƒãƒ
-    ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¯ã‚ªãƒ•
-    ã‚ªãƒ•ã®å ´åˆã¯ Write-Host ã‚’ç”¨ã„ã¦ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã¸è¡¨ç¤ºã™ã‚‹ãŸã‚ãƒªãƒ€ã‚¤ãƒ¬ã‚¯ãƒˆãŒä¸å¯èƒ½
-    ã‚ªãƒ³ã«ã—ãŸå ´åˆã¯ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”ã™ã®ã§ãƒªãƒ€ã‚¤ãƒ¬ã‚¯ãƒˆå¯èƒ½
+    ƒŠƒ_ƒCƒŒƒNƒgƒ‚[ƒh‚ÌƒXƒCƒbƒ`
+    ƒfƒtƒHƒ‹ƒg‚ÍƒIƒt
+    ƒIƒt‚Ìê‡‚Í Write-Host ‚ğ—p‚¢‚ÄƒRƒ“ƒ\[ƒ‹‚Ö•\¦‚·‚é‚½‚ßƒŠƒ_ƒCƒŒƒNƒg‚ª•s‰Â”\
+    ƒIƒ“‚É‚µ‚½ê‡‚ÍƒIƒuƒWƒFƒNƒg‚ğ•Ô‚·‚Ì‚ÅƒŠƒ_ƒCƒŒƒNƒg‰Â”\
 
     .PARAMETER CommonParameters
-    ã‚µãƒãƒ¼ãƒˆã—ã¦ã„ã¾ã›ã‚“
+    ƒTƒ|[ƒg‚µ‚Ä‚¢‚Ü‚¹‚ñ
 
   .INPUTS
-    ãƒ‘ã‚¹æ–‡å­—åˆ—
+    ƒpƒX•¶š—ñ
 
   .OUTPUTS
-    ãªã—ã€ã‚‚ã—ãã¯ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆé…åˆ—
+    ‚È‚µA‚à‚µ‚­‚ÍƒIƒuƒWƒFƒNƒg”z—ñ
 
   .EXAMPLE
     PS> Get-ItemList
-      ã‚«ãƒ¬ãƒ³ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ä¸­èº«ã‚’è¡¨ç¤ºã™ã‚‹
+      ƒJƒŒƒ“ƒgƒfƒBƒŒƒNƒgƒŠ‚Ì’†g‚ğ•\¦‚·‚é
 
   .EXAMPLE
     PS> Get-ItemList -Help
-      ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã™ã‚‹
+      ƒwƒ‹ƒv‚ğ•\¦‚·‚é
 
   .EXAMPLE
     PS> Get-ItemList ~/
-      ãƒ›ãƒ¼ãƒ ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ä¸­èº«ã®è¡¨ç¤º
+      ƒz[ƒ€ƒfƒBƒŒƒNƒgƒŠ‚Ì’†g‚Ì•\¦
 
   .EXAMPLE
     PS> Get-ItemList ~/Downloads/hoge.txt
-      ãƒ•ã‚¡ã‚¤ãƒ«åã®è¡¨ç¤º
+      ƒtƒ@ƒCƒ‹–¼‚Ì•\¦
 
   .EXAMPLE
     PS> Get-ItemList ~/ -Redirect
-      ãƒ›ãƒ¼ãƒ ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ä¸­èº«ã®é…åˆ—ã®è¿”å´
+      ƒz[ƒ€ƒfƒBƒŒƒNƒgƒŠ‚Ì’†g‚Ì”z—ñ‚Ì•Ô‹p
 
   .LINK
   #>
@@ -61,38 +61,38 @@ function Get-ItemList {
   if($Help){ Get-Help Get-ItemList; return }
 
   #------------------------------
-  # Mainå‡¦ç†
+  # Mainˆ—
   #------------------------------
-  # Redirect ã®å ´åˆã¯ Get-ChildItem ã®çµæœã‚’ãã®ã¾ã¾è¿”ã™
+  # Redirect ‚Ìê‡‚Í Get-ChildItem ‚ÌŒ‹‰Ê‚ğ‚»‚Ì‚Ü‚Ü•Ô‚·
   if($Redirect) {
     return Get-ChildItem $Path
   }
 
-  # è‰²ã®è¨­å®š
+  # F‚Ìİ’è
   $ColorFile = [System.ConsoleColor]::Green
   $ColorDirectory = [System.ConsoleColor]::Cyan
 
-  # è¡¨ç¤ºä¸Šã®åŒºåˆ‡ã‚Šæ–‡å­—
+  # •\¦ã‚Ì‹æØ‚è•¶š
   $SEPARATOR = " " * 6
 
-  # TODO: ã‚³ãƒ³ã‚½ãƒ¼ãƒ«å¹…ã‚’å–å¾—ã—ã¦é€”ä¸­æ”¹è¡Œã‚’é˜²ãå ´åˆã¯ä»¥ä¸‹ã‚’ä½¿ã†
+  # TODO: ƒRƒ“ƒ\[ƒ‹•‚ğæ“¾‚µ‚Ä“r’†‰üs‚ğ–h‚®ê‡‚ÍˆÈ‰º‚ğg‚¤
   # $maxWidth = $Host.UI.RawUI.WindowSize.Width
 
   Get-ChildItem $Path | ForEach-Object {
     if(Test-Path $_ -PathType Container) {
-      # å¯¾è±¡ã‚¢ã‚¤ãƒ†ãƒ ãŒ Directory ã®å ´åˆ
+      # ‘ÎÛƒAƒCƒeƒ€‚ª Directory ‚Ìê‡
       Write-Host -NoNewline $_.Name -Foreground $ColorDirectory
     } else {
-      # å¯¾è±¡ã‚¢ã‚¤ãƒ†ãƒ ãŒ File ã®å ´åˆ
+      # ‘ÎÛƒAƒCƒeƒ€‚ª File ‚Ìê‡
       Write-Host -NoNewline $_.Name -Foreground $ColorFile
     }
-    # åŒºåˆ‡ã‚Šæ–‡å­—ã®è¡¨ç¤º
+    # ‹æØ‚è•¶š‚Ì•\¦
     Write-Host -NoNewline $SEPARATOR
   }
 }
-# é–¢æ•°ã‚’ãã®ã¾ã¾Exportã™ã‚‹å ´åˆ
+# ŠÖ”‚ğ‚»‚Ì‚Ü‚ÜExport‚·‚éê‡
 # Export-ModuleMember -Function Get-ItemList
 
-# Aliasã‚‚è¨­å®šã—ã¦Exportã™ã‚‹å ´åˆ
+# Alias‚àİ’è‚µ‚ÄExport‚·‚éê‡
 Set-Alias ll Get-ItemList
 Export-ModuleMember -Function Get-ItemList -Alias ll
