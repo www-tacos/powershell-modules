@@ -41,7 +41,7 @@ http://itemy.net/?p=729
 "@
   $HtmlFile = "${env:HOMEPATH}/temp_font-family.html"
   Write-Output $HtmlText | Out-File -FilePath $HtmlFile -Encoding default
-  open $HtmlFile
+  Invoke-Item $HtmlFile
   Start-Sleep -Seconds 10
   Remove-Item -Path $HtmlFile -Force
 }
