@@ -44,9 +44,5 @@ function Start-PcSleep {
   $disableWakeEvent = $false
   [System.Windows.Forms.Application]::SetSuspendState($state, $force, $disableWakeEvent)
 }
-# 関数をそのままExportする場合
+# コマンドレットをExport
 Export-ModuleMember -Function Start-PcSleep
-
-# Aliasも設定してExportする場合
-# Set-Alias <alias> Start-PcSleep
-# Export-ModuleMember -Function Start-PcSleep -Alias <alias>

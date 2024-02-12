@@ -90,9 +90,5 @@ function Get-ItemList {
     Write-Host -NoNewline $SEPARATOR
   }
 }
-# 関数をそのままExportする場合
-# Export-ModuleMember -Function Get-ItemList
-
-# Aliasも設定してExportする場合
-Set-Alias ll Get-ItemList
-Export-ModuleMember -Function Get-ItemList -Alias ll
+# コマンドレットをExport
+Export-ModuleMember -Function Get-ItemList

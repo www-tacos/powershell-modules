@@ -3,34 +3,34 @@ function Get-PathFromDialog {
   <#
   .SYNOPSIS
     システムダイアログを表示してパスを取得する
-  
+
   .DESCRIPTION
     ダイアログを表示し、選択されたディレクトリまたはファイルのパスを返す
     キャンセルやエスケープでアイテムが選択されなかった場合、エラーを返す
-  
+
   .PARAMETER Help|h
     ヘルプを表示する
-  
+
   .PARAMETER PathType
     選択するパスのタイプ（ファイル/ディレクトリ）を選択する
-  
+
   .PARAMETER CommonParameters
     サポートしていません
-  
+
   .INPUTS
     なし
-  
+
   .OUTPUTS
     ダイアログの表示、選択されたディレクトリまたはファイルのフルパス
-  
+
   .EXAMPLE
     PS> Get-PathFromDialog -Help
       ヘルプを表示する
-  
+
   .EXAMPLE
     PS> Get-PathFromDialog -PathType File
       ファイルを選択するダイアログを表示し、選択されたファイルのパスを得る
-  
+
   .LINK
     参考: 引用元
     https://buralog.jp/powershell-folderbrowserdialog/
@@ -50,7 +50,7 @@ function Get-PathFromDialog {
   Add-Type -AssemblyName System.Windows.Forms
   switch ($PathType) {
     'File' {
-      $d = New-Object System.Windows.Forms.OpenFileDialog -Property @{ 
+      $d = New-Object System.Windows.Forms.OpenFileDialog -Property @{
         InitialDirectory = $env:HOMEPATH
         Title = 'ファイルを選択してください'
         CheckFileExists = $true
@@ -61,7 +61,7 @@ function Get-PathFromDialog {
       $property = 'FileName'
     }
     'Directory' {
-      $d = New-Object System.Windows.Forms.FolderBrowserDialog -Property @{ 
+      $d = New-Object System.Windows.Forms.FolderBrowserDialog -Property @{
         RootFolder = "MyComputer"
         Description = 'フォルダを選択してください'
       }
@@ -87,9 +87,5 @@ function Get-PathFromDialog {
     throw "パスが選択されませんでした"
   }
 }
-# 関数をそのままExportする場合
+# コマンドレットをExport
 Export-ModuleMember -Function Get-PathFromDialog
-
-# Aliasも設定してExportする場合
-# Set-Alias <alias> Get-PathFromDialog
-# Export-ModuleMember -Function Get-PathFromDialog -Alias <alias>

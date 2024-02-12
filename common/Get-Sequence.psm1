@@ -81,9 +81,5 @@ function Get-Sequence {
     return ${res}
   }
 }
-# 関数をそのままExportする場合
-# Export-ModuleMember -Function Get-Sequence
-
-# Aliasも設定してExportする場合
-Set-Alias seq Get-Sequence
-Export-ModuleMember -Function Get-Sequence -Alias seq
+# コマンドレットをExport
+Export-ModuleMember -Function Get-Sequence

@@ -2,37 +2,37 @@ function Get-TextFromDialog {
   <#
   .SYNOPSIS
     <コマンドの概要>
-  
+
   .DESCRIPTION
     <コマンドの説明>
-  
+
   .PARAMETER Help|h
     ヘルプを表示する
-  
+
   .PARAMETER <PARAM>
     <パラメータの説明>
-  
+
   .PARAMETER CommonParameters
     サポートしていません
-  
+
   .INPUTS
     <入力の概要>
-  
+
   .OUTPUTS
     <出力の概要>
-  
+
   .EXAMPLE
     PS> Get-TextFromDialog
       <コマンドのみ実行時の処理内容>
-  
+
   .EXAMPLE
     PS> Get-TextFromDialog -Help
       ヘルプを表示する
-  
+
   .EXAMPLE
     PS> Get-TextFromDialog <PARAM>
       <パラメータを指定したときの処理内容>
-  
+
   .LINK
     参考: TextBox クラス
     https://docs.microsoft.com/ja-jp/dotnet/api/system.windows.forms.textbox?view=net-5.0
@@ -140,9 +140,5 @@ function Get-TextFromDialog {
     return ""
   }
 }
-# 関数をそのままExportする場合
+# コマンドレットをExport
 Export-ModuleMember -Function Get-TextFromDialog
-
-# Aliasも設定してExportする場合
-# Set-Alias <alias> Get-TextFromDialog
-# Export-ModuleMember -Function Get-TextFromDialog -Alias <alias>

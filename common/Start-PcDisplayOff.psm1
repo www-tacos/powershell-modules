@@ -49,9 +49,5 @@ function Start-PcDisplayOff {
 
   $nativeWindow.DefWndProc([ref]$message)
 }
-# 関数をそのままExportする場合
+# コマンドレットをExport
 Export-ModuleMember -Function Start-PcDisplayOff
-
-# Aliasも設定してExportする場合
-# Set-Alias <alias> Start-PcDisplayOff
-# Export-ModuleMember -Function Start-PcDisplayOff -Alias <alias>

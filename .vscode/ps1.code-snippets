@@ -52,12 +52,8 @@
       "  #------------------------------",
       "  $2",
       "}",
-      "# 関数をそのままExportする場合",
+      "# コマンドレットをExport",
       "Export-ModuleMember -Function $1",
-      "",
-      "# Aliasも設定してExportする場合",
-      "# Set-Alias <alias> $1",
-      "# Export-ModuleMember -Function $1 -Alias <alias>",
       ""
     ],
     "description": "PowerShell Module Template"

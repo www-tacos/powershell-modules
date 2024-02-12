@@ -2,38 +2,38 @@ function Remove-BOM {
   <#
   .SYNOPSIS
     BOM付きUTF-8のファイルをUTF-8に変換する
-  
+
   .DESCRIPTION
     BOM付きUTF-8のファイルからBOMを削除しUTF-8ファイルに変換する
-  
+
   .PARAMETER Help|h
     ヘルプを表示する
-  
+
   .PARAMETER FilePath
     BOM付きUTF-8のファイル
-  
+
   .PARAMETER CommonParameters
     サポートしていません
-  
+
   .INPUTS
     ファイルパス
-  
+
   .OUTPUTS
     変換ファイル
-  
+
   .EXAMPLE
     PS> Remove-BOM -Help
       ヘルプを表示する
-  
+
   .EXAMPLE
     PS> Remove-BOM -Path ~/Downloads/sample_utf8bom.txt
       BOMなしのUTF-8形式で ~/Downloads/sample_utf8bom.txt を上書きする
-  
+
   .EXAMPLE
     PS> Remove-BOM -Path ~/Downloads/sample_utf8bom.txt -BackUp
       BOMなしのUTF-8形式で ~/Downloads/sample_utf8bom.txt を上書きする
       元のファイルは ~/Downloads/sample_utf8bomk.yyyymmdd_hhmmss.txt でバックアップする
-  
+
   .LINK
     参考: <参考サイト概要>
     <URL>
@@ -61,9 +61,5 @@ function Remove-BOM {
   $UTF8_NO_BOM_ENCODING = New-Object System.Text.UTF8Encoding($False)
   [System.IO.File]::WriteAllLines($FilePath, $text, $UTF8_NO_BOM_ENCODING)
 }
-# 関数をそのままExportする場合
+# コマンドレットをExport
 Export-ModuleMember -Function Remove-BOM
-
-# Aliasも設定してExportする場合
-# Set-Alias <alias> Remove-BOM
-# Export-ModuleMember -Function Remove-BOM -Alias <alias>

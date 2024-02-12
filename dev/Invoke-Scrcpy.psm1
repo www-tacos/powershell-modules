@@ -114,9 +114,5 @@ function Invoke-Scrcpy {
   # Invoke-Expression $command
   Write-Output $command
 }
-# 関数をそのままExportする場合
+# コマンドレットをExport
 Export-ModuleMember -Function Invoke-Scrcpy
-
-# Aliasも設定してExportする場合
-# Set-Alias <alias> Invoke-Scrcpy
-# Export-ModuleMember -Function Invoke-Scrcpy -Alias <alias>
