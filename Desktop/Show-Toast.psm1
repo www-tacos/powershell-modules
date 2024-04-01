@@ -1,58 +1,58 @@
-function Show-Toast {
+ï»¿function Show-Toast {
   <#
   .SYNOPSIS
-    ƒg[ƒXƒg’Ê’m‚ğ•\¦‚·‚é
+    ãƒˆãƒ¼ã‚¹ãƒˆé€šçŸ¥ã‚’è¡¨ç¤ºã™ã‚‹
 
   .DESCRIPTION
-    “ü—ÍƒeƒLƒXƒg‚ğƒg[ƒXƒgŒ`®‚Ì’Ê’m‚Æ‚µ‚Ä•\¦‚·‚é
-    ƒg[ƒXƒg’Ê’m‚Í5•b‚­‚ç‚¢‚Å©“®“I‚É‰B‚ê‚é
-    •¡”‚Ìƒg[ƒXƒg‚ğì¬‚µ‚½ê‡A•\¦’†‚Ìƒg[ƒXƒg‚ª‰B‚ê‚Ä‚©‚çŸ‚Ìƒg[ƒXƒg‚ª•\¦‚³‚ê‚é
-    ‰B‚ê‚½’Ê’m‚ÍWindows‚Ì’Ê’mƒo[‚©‚çŠm”F‚ÆÁ‹‚ª‚Å‚«‚é
+    å…¥åŠ›ãƒ†ã‚­ã‚¹ãƒˆã‚’ãƒˆãƒ¼ã‚¹ãƒˆå½¢å¼ã®é€šçŸ¥ã¨ã—ã¦è¡¨ç¤ºã™ã‚‹
+    ãƒˆãƒ¼ã‚¹ãƒˆé€šçŸ¥ã¯5ç§’ãã‚‰ã„ã§è‡ªå‹•çš„ã«éš ã‚Œã‚‹
+    è¤‡æ•°ã®ãƒˆãƒ¼ã‚¹ãƒˆã‚’ä½œæˆã—ãŸå ´åˆã€è¡¨ç¤ºä¸­ã®ãƒˆãƒ¼ã‚¹ãƒˆãŒéš ã‚Œã¦ã‹ã‚‰æ¬¡ã®ãƒˆãƒ¼ã‚¹ãƒˆãŒè¡¨ç¤ºã•ã‚Œã‚‹
+    éš ã‚ŒãŸé€šçŸ¥ã¯Windowsã®é€šçŸ¥ãƒãƒ¼ã‹ã‚‰ç¢ºèªã¨æ¶ˆå»ãŒã§ãã‚‹
 
   .PARAMETER Help|h
-    ƒwƒ‹ƒv‚ğ•\¦‚·‚é
+    ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã™ã‚‹
 
   .PARAMETER Message
-    ƒg[ƒXƒg’Ê’m‚É•\¦‚·‚éƒeƒLƒXƒg
-    ‰üs•¶š ('`n') ‚Å‰üs‚ğŠÜ‚ß‚é‚±‚Æ‚à‰Â”\i‚½‚¾‚µ•\¦‚Å‚«‚é‚Ì‚Í6s‚Ü‚Åj
-    ƒpƒCƒvƒ‰ƒCƒ“‚Åó‚¯æ‚é‚±‚Æ‚à‰Â”\
+    ãƒˆãƒ¼ã‚¹ãƒˆé€šçŸ¥ã«è¡¨ç¤ºã™ã‚‹ãƒ†ã‚­ã‚¹ãƒˆ
+    æ”¹è¡Œæ–‡å­— ('`n') ã§æ”¹è¡Œã‚’å«ã‚ã‚‹ã“ã¨ã‚‚å¯èƒ½ï¼ˆãŸã ã—è¡¨ç¤ºã§ãã‚‹ã®ã¯6è¡Œã¾ã§ï¼‰
+    ãƒ‘ã‚¤ãƒ—ãƒ©ã‚¤ãƒ³ã§å—ã‘å–ã‚‹ã“ã¨ã‚‚å¯èƒ½
 
   .PARAMETER CommonParameters
-    ƒTƒ|[ƒg‚µ‚Ä‚¢‚Ü‚¹‚ñ
+    ã‚µãƒãƒ¼ãƒˆã—ã¦ã„ã¾ã›ã‚“
 
   .INPUTS
-    •¶š—ñ
+    æ–‡å­—åˆ—
 
   .OUTPUTS
-    ƒg[ƒXƒg’Ê’m
+    ãƒˆãƒ¼ã‚¹ãƒˆé€šçŸ¥
 
   .EXAMPLE
     PS> Show-Toast
-      uV‚µ‚¢’Ê’mv‚Æ‚¢‚¤‹ó‚Ì’Ê’m‚ª•\¦‚³‚ê‚é
+      ã€Œæ–°ã—ã„é€šçŸ¥ã€ã¨ã„ã†ç©ºã®é€šçŸ¥ãŒè¡¨ç¤ºã•ã‚Œã‚‹
 
   .EXAMPLE
     PS> Show-Toast -Help
-      ƒwƒ‹ƒv‚ğ•\¦‚·‚é
+      ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã™ã‚‹
 
   .EXAMPLE
     PS> Show-Toast "Hello`nToast"
-      ƒg[ƒXƒg’Ê’m‚ÅuHello<‰üs>Toastv‚ğ•\¦‚·‚é
+      ãƒˆãƒ¼ã‚¹ãƒˆé€šçŸ¥ã§ã€ŒHello<æ”¹è¡Œ>Toastã€ã‚’è¡¨ç¤ºã™ã‚‹
 
   .LINK
-    Ql: Qiita‹L–
+    å‚è€ƒ: Qiitaè¨˜äº‹
     https://qiita.com/magiclib/items/12e2a9e1e1e823a7fa5c
 
-    Ql: Œö®ƒhƒLƒ…ƒƒ“ƒg
+    å‚è€ƒ: å…¬å¼ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆ
     https://docs.microsoft.com/en-us/windows/uwp/design/shell/tiles-and-notifications/toast-schema
   #>
   Param(
     [Alias('h')][switch] $Help,
     [Parameter(ValueFromPipeline = $true)] [String] $Message
   )
-  if($Help){ Get-Help Show-Toast; return }
+  if ($Help) { Get-Help Show-Toast; return }
 
   #------------------------------
-  # Mainˆ—
+  # Mainå‡¦ç†
   #------------------------------
   [Windows.UI.Notifications.ToastNotificationManager, Windows.UI.Notifications, ContentType = WindowsRuntime] > $null
   [Windows.UI.Notifications.ToastNotification, Windows.UI.Notifications, ContentType = WindowsRuntime] > $null
@@ -74,5 +74,5 @@ function Show-Toast {
   $TOAST = New-Object Windows.UI.Notifications.ToastNotification $XML
   [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier($APP_ID).Show($TOAST)
 }
-# ƒRƒ}ƒ“ƒhƒŒƒbƒg‚ğExport
+# ã‚³ãƒãƒ³ãƒ‰ãƒ¬ãƒƒãƒˆã‚’Export
 Export-ModuleMember -Function Show-Toast

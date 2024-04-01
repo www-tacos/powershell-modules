@@ -1,23 +1,23 @@
-function Restart-IME {
+ï»¿function Restart-IME {
   <#
   .SYNOPSIS
-  IME ‚ðÄ‹N“®‚·‚é
-  
+  IME ã‚’å†èµ·å‹•ã™ã‚‹
+
   .DESCRIPTION
-  IME‚ÌƒvƒƒZƒXID‚ð•\Ž¦‚µ‚ÄA‚»‚ÌID‚ðŽw’è‚µ‚ÄƒvƒƒZƒX‚ðI—¹‚µAIME‚ðÄ‹N“®‚·‚é
-  
+  IMEã®ãƒ—ãƒ­ã‚»ã‚¹IDã‚’è¡¨ç¤ºã—ã¦ã€ãã®IDã‚’æŒ‡å®šã—ã¦ãƒ—ãƒ­ã‚»ã‚¹ã‚’çµ‚äº†ã—ã€IMEã‚’å†èµ·å‹•ã™ã‚‹
+
   .EXAMPLE
   PS> Restart-IME
-  ŠeŽíƒvƒƒZƒX‚ðŽÀs‚·‚é
-  
+  å„ç¨®ãƒ—ãƒ­ã‚»ã‚¹ã‚’å®Ÿè¡Œã™ã‚‹
+
   .LINK
-  ŽQlƒŠƒ“ƒN
+  å‚è€ƒãƒªãƒ³ã‚¯
   https://qiita.com/_masa_u/items/b2e9c07f51a909c6e9b8
   #>
   Param(
     [Alias('h')][switch] $Help
   )
-  if($Help){ Get-Help Restart-IME; return }
+  if ($Help) { Get-Help Restart-IME; return }
 
   tasklist /fi "imagename eq ctfmon.exe"
   Write-Host ''
