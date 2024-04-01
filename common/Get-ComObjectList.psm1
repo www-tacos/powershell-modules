@@ -1,33 +1,33 @@
-function Get-ComObjectList {
+ï»¿function Get-ComObjectList {
   <#
   .SYNOPSIS
-  Com Object ˆê——‚ÌŽæ“¾
-  
+  Com Object ä¸€è¦§ã®å–å¾—
+
   .DESCRIPTION
-  New-ObjectƒRƒ}ƒ“ƒh‚Ì-ComObject‚ÉŽw’è‰Â”\‚Èƒpƒ‰ƒ[ƒ^ˆê——‚ðŽæ“¾‚·‚é
-  -ComObjectŽg—p—á
+  New-Objectã‚³ãƒžãƒ³ãƒ‰ã®-ComObjectã«æŒ‡å®šå¯èƒ½ãªãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ä¸€è¦§ã‚’å–å¾—ã™ã‚‹
+  -ComObjectä½¿ç”¨ä¾‹
     PS> $excel = New-Object -ComObject Excel.Application
-  
+
   .EXAMPLE
   PS> Get-ComObjectList
-  ƒRƒ“ƒ\[ƒ‹ã‚Éˆê——‚ð•\Ž¦
-  
+  ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ä¸Šã«ä¸€è¦§ã‚’è¡¨ç¤º
+
   .EXAMPLE
   PS> Get-ComObjectList | Where-Object { $_ -like "*excel*" }
-  excel ‚ÅƒtƒBƒ‹ƒ^ƒŠƒ“ƒO‚µ‚½Œ‹‰Ê‚Ì‚Ý•\Ž¦
-  
+  excel ã§ãƒ•ã‚£ãƒ«ã‚¿ãƒªãƒ³ã‚°ã—ãŸçµæžœã®ã¿è¡¨ç¤º
+
   .EXAMPLE
   PS> Get-ComObjectList | Out-File -FilePath ./com-objects.txt -Encoding default
-  ƒtƒ@ƒCƒ‹o—Í
-    
+  ãƒ•ã‚¡ã‚¤ãƒ«å‡ºåŠ›
+
   .LINK
-  ŽQlƒŠƒ“ƒN
+  å‚è€ƒãƒªãƒ³ã‚¯
   https://www.powershellmagazine.com/2013/06/27/pstip-get-a-list-of-all-com-objects-available/
   #>
   Param(
     [Alias('h')][switch] $Help
   )
-  if($Help){ Get-Help Get-ComObjectList; return }
+  if ($Help) { Get-Help Get-ComObjectList; return }
 
   ##### WRITE CODE HERE #####
   return Get-ChildItem HKLM:\Software\Classes -ErrorAction SilentlyContinue | Where-Object {

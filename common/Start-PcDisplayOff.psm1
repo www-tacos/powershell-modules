@@ -1,44 +1,44 @@
-function Start-PcDisplayOff {
+ï»¿function Start-PcDisplayOff {
   <#
   .SYNOPSIS
-    PC‚ÌƒfƒBƒXƒvƒŒƒC‚ğƒIƒt‚É‚·‚é
+    PCã®ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ã‚’ã‚ªãƒ•ã«ã™ã‚‹
 
   .DESCRIPTION
-    PC‚ÌƒfƒBƒXƒvƒŒƒC•\¦‚Ì‚İ‚ğƒIƒt‚É‚·‚é
-    ƒRƒ}ƒ“ƒhÀs‚µ‚Ä2•bŒã‚É‰æ–Ê‚ğƒIƒt‚É‚·‚é
-    ƒXƒŠ[ƒv‚É‚Í‚È‚ç‚¸Às’†‚ÌƒvƒƒZƒX‚Í‚»‚Ì‚Ü‚ÜÀs‚³‚ê‚é
+    PCã®ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤è¡¨ç¤ºã®ã¿ã‚’ã‚ªãƒ•ã«ã™ã‚‹
+    ã‚³ãƒãƒ³ãƒ‰å®Ÿè¡Œã—ã¦2ç§’å¾Œã«ç”»é¢ã‚’ã‚ªãƒ•ã«ã™ã‚‹
+    ã‚¹ãƒªãƒ¼ãƒ—ã«ã¯ãªã‚‰ãšå®Ÿè¡Œä¸­ã®ãƒ—ãƒ­ã‚»ã‚¹ã¯ãã®ã¾ã¾å®Ÿè¡Œã•ã‚Œã‚‹
 
   .PARAMETER Help|h
-    ƒwƒ‹ƒv‚ğ•\¦‚·‚é
+    ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã™ã‚‹
 
   .PARAMETER CommonParameters
-    ƒTƒ|[ƒg‚µ‚Ä‚¢‚Ü‚¹‚ñ
+    ã‚µãƒãƒ¼ãƒˆã—ã¦ã„ã¾ã›ã‚“
 
   .INPUTS
-    ‚È‚µ
+    ãªã—
 
   .OUTPUTS
-    ‚È‚µ
+    ãªã—
 
   .EXAMPLE
     PS> Start-PcDisplayOff
-      PC‚ÌƒfƒBƒXƒvƒŒƒC‚ğƒIƒt‚É‚·‚é
+      PCã®ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ã‚’ã‚ªãƒ•ã«ã™ã‚‹
 
   .EXAMPLE
     PS> Start-PcDisplayOff -Help
-      ƒwƒ‹ƒv‚ğ•\¦‚·‚é
+      ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã™ã‚‹
 
   .LINK
-    Ql: Qiita‹L–uPowerShellƒƒ‚@ƒVƒƒƒbƒgƒ_ƒEƒ“AÄ‹N“®AƒXƒŠ[ƒvv
+    å‚è€ƒ: Qiitaè¨˜äº‹ã€ŒPowerShellãƒ¡ãƒ¢ã€€ã‚·ãƒ£ãƒƒãƒˆãƒ€ã‚¦ãƒ³ã€å†èµ·å‹•ã€ã‚¹ãƒªãƒ¼ãƒ—ã€
     https://qiita.com/Kosen-amai/items/4b773c077a588f2a2fb5
   #>
   Param(
     [Alias('h')][switch] $Help
   )
-  if($Help){ Get-Help Start-PcDisplayOff; return }
+  if ($Help) { Get-Help Start-PcDisplayOff; return }
 
   #------------------------------
-  # Mainˆ—
+  # Mainå‡¦ç†
   #------------------------------
   Add-Type -AssemblyName System.Windows.Forms
   $form = New-Object System.Windows.Forms.Form
@@ -49,5 +49,5 @@ function Start-PcDisplayOff {
 
   $nativeWindow.DefWndProc([ref]$message)
 }
-# ƒRƒ}ƒ“ƒhƒŒƒbƒg‚ğExport
+# ã‚³ãƒãƒ³ãƒ‰ãƒ¬ãƒƒãƒˆã‚’Export
 Export-ModuleMember -Function Start-PcDisplayOff

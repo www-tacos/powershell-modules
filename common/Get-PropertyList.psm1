@@ -1,42 +1,42 @@
-function Get-PropertyList {
+ï»¿function Get-PropertyList {
   <#
   .SYNOPSIS
-  ƒIƒuƒWƒFƒNƒg‚ª‚ÂƒvƒƒpƒeƒB\ˆê——‚ğæ“¾‚·‚é
-  
+  ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒæŒã¤ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£â€•ä¸€è¦§ã‚’å–å¾—ã™ã‚‹
+
   .DESCRIPTION
-  ƒpƒ‰ƒ[ƒ^‚ÌƒIƒuƒWƒFƒNƒg‚ª‚ÂƒvƒƒpƒeƒB\ˆê——‚Ì”z—ñƒIƒuƒWƒFƒNƒg‚ğæ“¾‚·‚é
-  
+  ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒæŒã¤ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£â€•ä¸€è¦§ã®é…åˆ—ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—ã™ã‚‹
+
   .EXAMPLE
   PS> Get-PropertyList (Get-Date)
-  DateTimeƒIƒuƒWƒFƒNƒg‚ª‚ÂƒvƒƒpƒeƒB\ˆê——‚ğæ“¾‚·‚é
-  
+  DateTimeã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒæŒã¤ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£â€•ä¸€è¦§ã‚’å–å¾—ã™ã‚‹
+
   .EXAMPLE
   Get-Date | Get-PropertyList
-  ƒpƒCƒvƒ‰ƒCƒ“‚Å“n‚·‚±‚Æ‚à‰Â”\
-  
-  PARAMETER ‚É‚Í CommonParameters ‚É‚Â‚¢‚Äà–¾‚ªŸè‚É’Ç‰Á‚³‚ê‚é‚Ì‚Å
-  u<CommonParameters> ‚ÍƒTƒ|[ƒg‚µ‚Ä‚¢‚Ü‚¹‚ñv‚Æ‘‚¢‚Ä‚¨‚­‚Æ—Ç‚¢‚©‚à‚µ‚ê‚Ü‚¹‚ñB
-  
+  ãƒ‘ã‚¤ãƒ—ãƒ©ã‚¤ãƒ³ã§æ¸¡ã™ã“ã¨ã‚‚å¯èƒ½
+
+  PARAMETER ã«ã¯ CommonParameters ã«ã¤ã„ã¦èª¬æ˜ãŒå‹æ‰‹ã«è¿½åŠ ã•ã‚Œã‚‹ã®ã§
+  ã€Œ<CommonParameters> ã¯ã‚µãƒãƒ¼ãƒˆã—ã¦ã„ã¾ã›ã‚“ã€ã¨æ›¸ã„ã¦ãŠãã¨è‰¯ã„ã‹ã‚‚ã—ã‚Œã¾ã›ã‚“ã€‚
+
   .LINK
-  “Á‚É‚È‚µ
+  ç‰¹ã«ãªã—
   #>
   Param(
     [Alias('h')][switch] $Help,
-    [Parameter(ValueFromPipeline=$true)][object] $InputObject
+    [Parameter(ValueFromPipeline = $true)][object] $InputObject
   )
-  if($Help){ Get-Help Get-PropertyList; return }
+  if ($Help) { Get-Help Get-PropertyList; return }
 
   class Record {
     [string]$key
     [string]$value
     Record([string]$k, [string]$v) {
-        $this.key = $k
-        $this.value = $v
+      $this.key = $k
+      $this.value = $v
     }
   }
   $res = @()
   Get-Member -InputObject $InputObject -MemberType property | ForEach-Object {
-      $res += [Record]::new($_.Name, $InputObject.($_.Name))
+    $res += [Record]::new($_.Name, $InputObject.($_.Name))
   }
   return $res
 }

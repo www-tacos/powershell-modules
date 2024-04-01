@@ -1,25 +1,25 @@
-function Remove-Indent {
+ï»¿function Remove-Indent {
   <#
   .SYNOPSIS
-  ƒCƒ“ƒfƒ“ƒg‚Ìíœ
+  ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã®å‰Šé™¤
 
   .DESCRIPTION
-  ƒqƒAƒhƒLƒ…ƒƒ“ƒg‚É‹Ï“™‚ÉƒCƒ“ƒfƒ“ƒg‚ðŠÜ‚ß‚Ä‚¢‚éê‡A‚»‚ÌƒCƒ“ƒfƒ“ƒg‚ðÁ‹Ž‚·‚é
-  ‚·‚×‚Ä‚Ìs‚Ì’†‚Å1”Ô’Z‚¢ƒCƒ“ƒfƒ“ƒg‚ð‘Ss‚©‚çŽæ‚èœ‚­
+  ãƒ’ã‚¢ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã«å‡ç­‰ã«ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã‚’å«ã‚ã¦ã„ã‚‹å ´åˆã€ãã®ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã‚’æ¶ˆåŽ»ã™ã‚‹
+  ã™ã¹ã¦ã®è¡Œã®ä¸­ã§1ç•ªçŸ­ã„ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã‚’å…¨è¡Œã‹ã‚‰å–ã‚Šé™¤ã
 
   .EXAMPLE
   PS> Remove-Indent $txt
-  StringŒ^‚Ì’l‚ðˆø”‚É‚Æ‚é
+  Stringåž‹ã®å€¤ã‚’å¼•æ•°ã«ã¨ã‚‹
 
   .LINK
-  ŠÖ˜A‚·‚éƒŠƒ“ƒN‚Ì URL
+  é–¢é€£ã™ã‚‹ãƒªãƒ³ã‚¯ã® URL
   https://stackoverflow.com/questions/1417663/doing-textwrap-and-dedent-in-windows-powershell-or-dotnet-aka-net
   #>
   Param(
     [Alias('h')][switch] $Help,
     [string] $Text
   )
-  if($Help){ Get-Help Remove-Indent; return }
+  if ($Help) { Get-Help Remove-Indent; return }
 
   ##### WRITE CODE HERE #####
   $strArray = $Text.Split("`n");

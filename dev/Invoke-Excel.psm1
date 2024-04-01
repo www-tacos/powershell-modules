@@ -1,34 +1,34 @@
-function Invoke-Excel {
+ï»¿function Invoke-Excel {
   <#
   .SYNOPSIS
-  ‚±‚±‚ÉŠT—v‚ð‘‚«‚Ü‚·
-  
+  ã“ã“ã«æ¦‚è¦ã‚’æ›¸ãã¾ã™
+
   .DESCRIPTION
-  ‚±‚±‚Éà–¾‚ð‘‚«‚Ü‚·
-  
+  ã“ã“ã«èª¬æ˜Žã‚’æ›¸ãã¾ã™
+
   .EXAMPLE
-  ‚±‚±‚É‹ï‘Ì“I‚Èˆø”‚Ì—á‚Æ‰ðà‚ð‘‚«‚Ü‚·(•¡”‹Lq‰Â)
-  
+  ã“ã“ã«å…·ä½“çš„ãªå¼•æ•°ã®ä¾‹ã¨è§£èª¬ã‚’æ›¸ãã¾ã™(è¤‡æ•°è¨˜è¿°å¯)
+
   .EXAMPLE
-  ‚±‚±‚É‹ï‘Ì“I‚Èˆø”‚Ì—á‚Æ‰ðà‚ð‘‚«‚Ü‚·(•¡”‹Lq‰Â)
-  
-  .PARAMETER ˆø”–¼
-  ‚±‚±‚çˆø”‚Ìà–¾‚ð‘‚«‚Ü‚·(•¡”‹Lq‰Â)
-  
-  .PARAMETER ˆø”–¼
-  ‚±‚±‚çˆø”‚Ìà–¾‚ð‘‚«‚Ü‚·(•¡”‹Lq‰Â)
-  
-  PARAMETER ‚É‚Í CommonParameters ‚É‚Â‚¢‚Äà–¾‚ªŸŽè‚É’Ç‰Á‚³‚ê‚é‚Ì‚Å
-  u<CommonParameters> ‚ÍƒTƒ|[ƒg‚µ‚Ä‚¢‚Ü‚¹‚ñv‚Æ‘‚¢‚Ä‚¨‚­‚Æ—Ç‚¢‚©‚à‚µ‚ê‚Ü‚¹‚ñB
-  
+  ã“ã“ã«å…·ä½“çš„ãªå¼•æ•°ã®ä¾‹ã¨è§£èª¬ã‚’æ›¸ãã¾ã™(è¤‡æ•°è¨˜è¿°å¯)
+
+  .PARAMETER å¼•æ•°å
+  ã“ã“ã‚‰å¼•æ•°ã®èª¬æ˜Žã‚’æ›¸ãã¾ã™(è¤‡æ•°è¨˜è¿°å¯)
+
+  .PARAMETER å¼•æ•°å
+  ã“ã“ã‚‰å¼•æ•°ã®èª¬æ˜Žã‚’æ›¸ãã¾ã™(è¤‡æ•°è¨˜è¿°å¯)
+
+  PARAMETER ã«ã¯ CommonParameters ã«ã¤ã„ã¦èª¬æ˜ŽãŒå‹æ‰‹ã«è¿½åŠ ã•ã‚Œã‚‹ã®ã§
+  ã€Œ<CommonParameters> ã¯ã‚µãƒãƒ¼ãƒˆã—ã¦ã„ã¾ã›ã‚“ã€ã¨æ›¸ã„ã¦ãŠãã¨è‰¯ã„ã‹ã‚‚ã—ã‚Œã¾ã›ã‚“ã€‚
+
   .LINK
-  ŠÖ˜A‚·‚éƒŠƒ“ƒN‚Ì URL ‚ð‘‚«‚Ü‚·
+  é–¢é€£ã™ã‚‹ãƒªãƒ³ã‚¯ã® URL ã‚’æ›¸ãã¾ã™
   http://www.vwnet.jp/Windows/PowerShell/SupportGetHelp.htm
   #>
   Param(
     [Alias('h')][switch] $Help
   )
-  if($Help){ Get-Help Invoke-Excel; return }
+  if ($Help) { Get-Help Invoke-Excel; return }
 
   ##### WRITE CODE HERE #####
 }

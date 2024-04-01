@@ -1,55 +1,55 @@
-function Get-ItemList {
+ï»¿function Get-ItemList {
   <#
   .SYNOPSIS
-    w’èƒpƒX‚ÌƒAƒCƒeƒ€‚ğ•\¦‚·‚é
+    æŒ‡å®šãƒ‘ã‚¹ã®ã‚¢ã‚¤ãƒ†ãƒ ã‚’è¡¨ç¤ºã™ã‚‹
 
   .DESCRIPTION
-    Bash‚ÌlsƒRƒ}ƒ“ƒh‚Ì‚æ‚¤‚Éw’èƒpƒX‚ÌƒAƒCƒeƒ€–¼‚Ì‚İ‚ğ•\¦‚·‚é
-    ƒfƒtƒHƒ‹ƒg‚Å‚ÍƒRƒ“ƒ\[ƒ‹‚Ö•\¦‚·‚éİ’è‚ÅA‚»‚Ìê‡‚ÍF•t‚«‚Å•\¦‚·‚é
-    ƒŠƒ_ƒCƒŒƒNƒgƒ‚[ƒh‚É‚µ‚½ê‡‚Í Get-ChildItem ‚ğw’èƒpƒX‚É‘Î‚µ‚ÄÀs‚µ‚½Œ‹‰Ê‚ğ•Ô‚·
+    Bashã®lsã‚³ãƒãƒ³ãƒ‰ã®ã‚ˆã†ã«æŒ‡å®šãƒ‘ã‚¹ã®ã‚¢ã‚¤ãƒ†ãƒ åã®ã¿ã‚’è¡¨ç¤ºã™ã‚‹
+    ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ã¯ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã¸è¡¨ç¤ºã™ã‚‹è¨­å®šã§ã€ãã®å ´åˆã¯è‰²ä»˜ãã§è¡¨ç¤ºã™ã‚‹
+    ãƒªãƒ€ã‚¤ãƒ¬ã‚¯ãƒˆãƒ¢ãƒ¼ãƒ‰ã«ã—ãŸå ´åˆã¯ Get-ChildItem ã‚’æŒ‡å®šãƒ‘ã‚¹ã«å¯¾ã—ã¦å®Ÿè¡Œã—ãŸçµæœã‚’è¿”ã™
 
   .PARAMETER Help|h
-    ƒwƒ‹ƒv‚ğ•\¦‚·‚é
+    ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã™ã‚‹
 
   .PARAMETER Path
-    ƒAƒCƒeƒ€ƒŠƒXƒg‚ğ•\¦‚·‚é‘ÎÛ‚ÌƒpƒX
-    ƒfƒBƒŒƒNƒgƒŠ‚ğw’è‚µ‚½ê‡‚ÍƒfƒBƒŒƒNƒgƒŠ“à‚ÌƒAƒCƒeƒ€–¼‚ğ‘ÎÛ‚Æ‚·‚é
-    ƒtƒ@ƒCƒ‹‚ğw’è‚µ‚½ê‡‚Í‚»‚Ìƒtƒ@ƒCƒ‹–¼‚ğ‘ÎÛ‚Æ‚·‚é
+    ã‚¢ã‚¤ãƒ†ãƒ ãƒªã‚¹ãƒˆã‚’è¡¨ç¤ºã™ã‚‹å¯¾è±¡ã®ãƒ‘ã‚¹
+    ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’æŒ‡å®šã—ãŸå ´åˆã¯ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªå†…ã®ã‚¢ã‚¤ãƒ†ãƒ åã‚’å¯¾è±¡ã¨ã™ã‚‹
+    ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æŒ‡å®šã—ãŸå ´åˆã¯ãã®ãƒ•ã‚¡ã‚¤ãƒ«åã‚’å¯¾è±¡ã¨ã™ã‚‹
 
   .PARAMETER Redirect
-    ƒŠƒ_ƒCƒŒƒNƒgƒ‚[ƒh‚ÌƒXƒCƒbƒ`
-    ƒfƒtƒHƒ‹ƒg‚ÍƒIƒt
-    ƒIƒt‚Ìê‡‚Í Write-Host ‚ğ—p‚¢‚ÄƒRƒ“ƒ\[ƒ‹‚Ö•\¦‚·‚é‚½‚ßƒŠƒ_ƒCƒŒƒNƒg‚ª•s‰Â”\
-    ƒIƒ“‚É‚µ‚½ê‡‚ÍƒIƒuƒWƒFƒNƒg‚ğ•Ô‚·‚Ì‚ÅƒŠƒ_ƒCƒŒƒNƒg‰Â”\
+    ãƒªãƒ€ã‚¤ãƒ¬ã‚¯ãƒˆãƒ¢ãƒ¼ãƒ‰ã®ã‚¹ã‚¤ãƒƒãƒ
+    ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¯ã‚ªãƒ•
+    ã‚ªãƒ•ã®å ´åˆã¯ Write-Host ã‚’ç”¨ã„ã¦ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã¸è¡¨ç¤ºã™ã‚‹ãŸã‚ãƒªãƒ€ã‚¤ãƒ¬ã‚¯ãƒˆãŒä¸å¯èƒ½
+    ã‚ªãƒ³ã«ã—ãŸå ´åˆã¯ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”ã™ã®ã§ãƒªãƒ€ã‚¤ãƒ¬ã‚¯ãƒˆå¯èƒ½
 
     .PARAMETER CommonParameters
-    ƒTƒ|[ƒg‚µ‚Ä‚¢‚Ü‚¹‚ñ
+    ã‚µãƒãƒ¼ãƒˆã—ã¦ã„ã¾ã›ã‚“
 
   .INPUTS
-    ƒpƒX•¶š—ñ
+    ãƒ‘ã‚¹æ–‡å­—åˆ—
 
   .OUTPUTS
-    ‚È‚µA‚à‚µ‚­‚ÍƒIƒuƒWƒFƒNƒg”z—ñ
+    ãªã—ã€ã‚‚ã—ãã¯ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆé…åˆ—
 
   .EXAMPLE
     PS> Get-ItemList
-      ƒJƒŒƒ“ƒgƒfƒBƒŒƒNƒgƒŠ‚Ì’†g‚ğ•\¦‚·‚é
+      ã‚«ãƒ¬ãƒ³ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ä¸­èº«ã‚’è¡¨ç¤ºã™ã‚‹
 
   .EXAMPLE
     PS> Get-ItemList -Help
-      ƒwƒ‹ƒv‚ğ•\¦‚·‚é
+      ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã™ã‚‹
 
   .EXAMPLE
     PS> Get-ItemList ~/
-      ƒz[ƒ€ƒfƒBƒŒƒNƒgƒŠ‚Ì’†g‚Ì•\¦
+      ãƒ›ãƒ¼ãƒ ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ä¸­èº«ã®è¡¨ç¤º
 
   .EXAMPLE
     PS> Get-ItemList ~/Downloads/hoge.txt
-      ƒtƒ@ƒCƒ‹–¼‚Ì•\¦
+      ãƒ•ã‚¡ã‚¤ãƒ«åã®è¡¨ç¤º
 
   .EXAMPLE
     PS> Get-ItemList ~/ -Redirect
-      ƒz[ƒ€ƒfƒBƒŒƒNƒgƒŠ‚Ì’†g‚Ì”z—ñ‚Ì•Ô‹p
+      ãƒ›ãƒ¼ãƒ ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ä¸­èº«ã®é…åˆ—ã®è¿”å´
 
   .LINK
   #>
@@ -58,37 +58,38 @@ function Get-ItemList {
     [string] $Path = (Get-Location).Path,
     [switch] $Redirect = $false
   )
-  if($Help){ Get-Help Get-ItemList; return }
+  if ($Help) { Get-Help Get-ItemList; return }
 
   #------------------------------
-  # Mainˆ—
+  # Mainå‡¦ç†
   #------------------------------
-  # Redirect ‚Ìê‡‚Í Get-ChildItem ‚ÌŒ‹‰Ê‚ğ‚»‚Ì‚Ü‚Ü•Ô‚·
-  if($Redirect) {
+  # Redirect ã®å ´åˆã¯ Get-ChildItem ã®çµæœã‚’ãã®ã¾ã¾è¿”ã™
+  if ($Redirect) {
     return Get-ChildItem $Path
   }
 
-  # F‚Ìİ’è
+  # è‰²ã®è¨­å®š
   $ColorFile = [System.ConsoleColor]::Green
   $ColorDirectory = [System.ConsoleColor]::Cyan
 
-  # •\¦ã‚Ì‹æØ‚è•¶š
+  # è¡¨ç¤ºä¸Šã®åŒºåˆ‡ã‚Šæ–‡å­—
   $SEPARATOR = " " * 6
 
-  # TODO: ƒRƒ“ƒ\[ƒ‹•‚ğæ“¾‚µ‚Ä“r’†‰üs‚ğ–h‚®ê‡‚ÍˆÈ‰º‚ğg‚¤
+  # TODO: ã‚³ãƒ³ã‚½ãƒ¼ãƒ«å¹…ã‚’å–å¾—ã—ã¦é€”ä¸­æ”¹è¡Œã‚’é˜²ãå ´åˆã¯ä»¥ä¸‹ã‚’ä½¿ã†
   # $maxWidth = $Host.UI.RawUI.WindowSize.Width
 
   Get-ChildItem $Path | ForEach-Object {
-    if(Test-Path $_ -PathType Container) {
-      # ‘ÎÛƒAƒCƒeƒ€‚ª Directory ‚Ìê‡
+    if (Test-Path $_ -PathType Container) {
+      # å¯¾è±¡ã‚¢ã‚¤ãƒ†ãƒ ãŒ Directory ã®å ´åˆ
       Write-Host -NoNewline $_.Name -Foreground $ColorDirectory
-    } else {
-      # ‘ÎÛƒAƒCƒeƒ€‚ª File ‚Ìê‡
+    }
+    else {
+      # å¯¾è±¡ã‚¢ã‚¤ãƒ†ãƒ ãŒ File ã®å ´åˆ
       Write-Host -NoNewline $_.Name -Foreground $ColorFile
     }
-    # ‹æØ‚è•¶š‚Ì•\¦
+    # åŒºåˆ‡ã‚Šæ–‡å­—ã®è¡¨ç¤º
     Write-Host -NoNewline $SEPARATOR
   }
 }
-# ƒRƒ}ƒ“ƒhƒŒƒbƒg‚ğExport
+# ã‚³ãƒãƒ³ãƒ‰ãƒ¬ãƒƒãƒˆã‚’Export
 Export-ModuleMember -Function Get-ItemList

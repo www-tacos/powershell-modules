@@ -1,42 +1,42 @@
-function Start-PcSleep {
+ï»¿function Start-PcSleep {
   <#
   .SYNOPSIS
-    PC‚ğƒXƒŠ[ƒvó‘Ô‚É‚·‚é
+    PCã‚’ã‚¹ãƒªãƒ¼ãƒ—çŠ¶æ…‹ã«ã™ã‚‹
 
   .DESCRIPTION
-    PC‚ğƒXƒŠ[ƒvó‘Ô‚É‚·‚é
+    PCã‚’ã‚¹ãƒªãƒ¼ãƒ—çŠ¶æ…‹ã«ã™ã‚‹
 
   .PARAMETER Help|h
-    ƒwƒ‹ƒv‚ğ•\¦‚·‚é
+    ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã™ã‚‹
 
   .PARAMETER CommonParameters
-    ƒTƒ|[ƒg‚µ‚Ä‚¢‚Ü‚¹‚ñ
+    ã‚µãƒãƒ¼ãƒˆã—ã¦ã„ã¾ã›ã‚“
 
   .INPUTS
-    ‚È‚µ
+    ãªã—
 
   .OUTPUTS
-    ‚È‚µ
+    ãªã—
 
   .EXAMPLE
     PS> Start-PcSleep
-      PC‚ğƒXƒŠ[ƒv‚³‚¹‚é
+      PCã‚’ã‚¹ãƒªãƒ¼ãƒ—ã•ã›ã‚‹
 
   .EXAMPLE
     PS> Start-PcSleep -Help
-      ƒwƒ‹ƒv‚ğ•\¦‚·‚é
+      ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã™ã‚‹
 
   .LINK
-    Ql: Qiita‹L–uPowerShellƒƒ‚@ƒVƒƒƒbƒgƒ_ƒEƒ“AÄ‹N“®AƒXƒŠ[ƒvv
+    å‚è€ƒ: Qiitaè¨˜äº‹ã€ŒPowerShellãƒ¡ãƒ¢ã€€ã‚·ãƒ£ãƒƒãƒˆãƒ€ã‚¦ãƒ³ã€å†èµ·å‹•ã€ã‚¹ãƒªãƒ¼ãƒ—ã€
     https://qiita.com/Kosen-amai/items/4b773c077a588f2a2fb5
   #>
   Param(
     [Alias('h')][switch] $Help
   )
-  if($Help){ Get-Help Start-PcSleep; return }
+  if ($Help) { Get-Help Start-PcSleep; return }
 
   #------------------------------
-  # Mainˆ—
+  # Mainå‡¦ç†
   #------------------------------
   Add-Type -AssemblyName System.Windows.Forms
   $state = [System.Windows.Forms.PowerState]::Suspend
@@ -44,5 +44,5 @@ function Start-PcSleep {
   $disableWakeEvent = $false
   [System.Windows.Forms.Application]::SetSuspendState($state, $force, $disableWakeEvent)
 }
-# ƒRƒ}ƒ“ƒhƒŒƒbƒg‚ğExport
+# ã‚³ãƒãƒ³ãƒ‰ãƒ¬ãƒƒãƒˆã‚’Export
 Export-ModuleMember -Function Start-PcSleep

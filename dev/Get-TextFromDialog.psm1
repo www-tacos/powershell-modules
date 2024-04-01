@@ -1,58 +1,58 @@
-function Get-TextFromDialog {
+ï»¿function Get-TextFromDialog {
   <#
   .SYNOPSIS
-    <ƒRƒ}ƒ“ƒh‚ÌŠT—v>
+    <ã‚³ãƒãƒ³ãƒ‰ã®æ¦‚è¦>
 
   .DESCRIPTION
-    <ƒRƒ}ƒ“ƒh‚Ìà–¾>
+    <ã‚³ãƒãƒ³ãƒ‰ã®èª¬æ˜>
 
   .PARAMETER Help|h
-    ƒwƒ‹ƒv‚ğ•\¦‚·‚é
+    ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã™ã‚‹
 
   .PARAMETER <PARAM>
-    <ƒpƒ‰ƒ[ƒ^‚Ìà–¾>
+    <ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®èª¬æ˜>
 
   .PARAMETER CommonParameters
-    ƒTƒ|[ƒg‚µ‚Ä‚¢‚Ü‚¹‚ñ
+    ã‚µãƒãƒ¼ãƒˆã—ã¦ã„ã¾ã›ã‚“
 
   .INPUTS
-    <“ü—Í‚ÌŠT—v>
+    <å…¥åŠ›ã®æ¦‚è¦>
 
   .OUTPUTS
-    <o—Í‚ÌŠT—v>
+    <å‡ºåŠ›ã®æ¦‚è¦>
 
   .EXAMPLE
     PS> Get-TextFromDialog
-      <ƒRƒ}ƒ“ƒh‚Ì‚İÀs‚Ìˆ—“à—e>
+      <ã‚³ãƒãƒ³ãƒ‰ã®ã¿å®Ÿè¡Œæ™‚ã®å‡¦ç†å†…å®¹>
 
   .EXAMPLE
     PS> Get-TextFromDialog -Help
-      ƒwƒ‹ƒv‚ğ•\¦‚·‚é
+      ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã™ã‚‹
 
   .EXAMPLE
     PS> Get-TextFromDialog <PARAM>
-      <ƒpƒ‰ƒ[ƒ^‚ğw’è‚µ‚½‚Æ‚«‚Ìˆ—“à—e>
+      <ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’æŒ‡å®šã—ãŸã¨ãã®å‡¦ç†å†…å®¹>
 
   .LINK
-    Ql: TextBox ƒNƒ‰ƒX
+    å‚è€ƒ: TextBox ã‚¯ãƒ©ã‚¹
     https://docs.microsoft.com/ja-jp/dotnet/api/system.windows.forms.textbox?view=net-5.0
 
-    Ql: ƒtƒH[ƒ€ƒTƒCƒYŒÅ’è
+    å‚è€ƒ: ãƒ•ã‚©ãƒ¼ãƒ ã‚µã‚¤ã‚ºå›ºå®š
     https://stackoverflow.com/questions/7970262/disable-resizing-of-a-windows-forms-form
     #>
   Param(
     [Alias('h')][switch] $Help,
     [int] $TextAriaSize = 60,
-    [string]$Description = "ƒeƒLƒXƒg‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢"
+    [string]$Description = "ãƒ†ã‚­ã‚¹ãƒˆã‚’å…¥åŠ›ã—ã¦ãã ã•ã„"
   )
-  if($Help){ Get-Help Get-TextFromDialog; return }
+  if ($Help) { Get-Help Get-TextFromDialog; return }
 
   #------------------------------
-  # Mainˆ—
+  # Mainå‡¦ç†
   #------------------------------
   Add-Type -AssemblyName System.Windows.Forms
 
-  # ƒTƒCƒY’l‚ÌŒvZ
+  # ã‚µã‚¤ã‚ºå€¤ã®è¨ˆç®—
   $MARGIN = 20
   $BTN_WIDTH = 80
   $BTN_HEIGHT = 30
@@ -61,84 +61,85 @@ function Get-TextFromDialog {
   $FRM_WIDTH = ($BTN_WIDTH + $MARGIN * 2) * 2
   $FRM_HEIGHT = ($BTN_HEIGHT + $MARGIN * 2) + ($TBX_HEIGHT + $MARGIN * 2)
 
-  # ƒtƒHƒ“ƒg‚Ìİ’è
-  # ƒtƒHƒ“ƒg
+  # ãƒ•ã‚©ãƒ³ãƒˆã®è¨­å®š
+  # ãƒ•ã‚©ãƒ³ãƒˆ
   $ValidFont = @(
     "Noto Sans Mono CJK JP Regular",
     "Noto Sans CJK JP Regular",
     "HackGenNerd",
     "Ricty Diminished",
-    "Œ¹ƒmŠpƒSƒVƒbƒN Code JP N",
-    "ƒƒCƒŠƒI",
-    "‚l‚r ƒSƒVƒbƒN"
-   ) | Where-Object {
+    "æºãƒè§’ã‚´ã‚·ãƒƒã‚¯ Code JP N",
+    "ãƒ¡ã‚¤ãƒªã‚ª",
+    "ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯"
+  ) | Where-Object {
     $_ -in [System.Drawing.FontFamily]::Families
   }
   $FONT = New-Object System.Drawing.Font($ValidFont[0], 12)
 
-  # ƒtƒH[ƒ€‚Ìİ’è
+  # ãƒ•ã‚©ãƒ¼ãƒ ã®è¨­å®š
   $form = New-Object System.Windows.Forms.Form -Property @{
-    Text = "Input Box"
-    Size = New-Object System.Drawing.Size(300,180)
-    Topmost = $true
-    StartPosition = "CenterScreen"
-    SizeGripStyle = "Hide"
+    Text            = "Input Box"
+    Size            = New-Object System.Drawing.Size(300, 180)
+    Topmost         = $true
+    StartPosition   = "CenterScreen"
+    SizeGripStyle   = "Hide"
     FormBorderStyle = "FixedSingle"
   }
 
-  # OKƒ{ƒ^ƒ“‚Ìİ’è
+  # OKãƒœã‚¿ãƒ³ã®è¨­å®š
   $OKButton = New-Object System.Windows.Forms.Button -Property @{
-    Text = "OK"
-    DialogResult = "OK"  # —ñ‹“q–¼FNone, OK, Cancel, Abort, Retry, Ignore, Yes, No
-    Size = New-Object System.Drawing.Size(75,30)
-    Location = New-Object System.Drawing.Point(60,100)
+    Text         = "OK"
+    DialogResult = "OK"  # åˆ—æŒ™å­åï¼šNone, OK, Cancel, Abort, Retry, Ignore, Yes, No
+    Size         = New-Object System.Drawing.Size(75, 30)
+    Location     = New-Object System.Drawing.Point(60, 100)
   }
 
-  # ƒLƒƒƒ“ƒZƒ‹ƒ{ƒ^ƒ“‚Ìİ’è
+  # ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãƒœã‚¿ãƒ³ã®è¨­å®š
   $CancelButton = New-Object System.Windows.Forms.Button -Property @{
-    Text = "Cancel"
-    DialogResult = "Cancel"  # —ñ‹“q–¼FNone, OK, Cancel, Abort, Retry, Ignore, Yes, No
-    Size = New-Object System.Drawing.Size(75,30)
-    Location = New-Object System.Drawing.Point(150,100)
+    Text         = "Cancel"
+    DialogResult = "Cancel"  # åˆ—æŒ™å­åï¼šNone, OK, Cancel, Abort, Retry, Ignore, Yes, No
+    Size         = New-Object System.Drawing.Size(75, 30)
+    Location     = New-Object System.Drawing.Point(150, 100)
   }
 
-  # ƒ‰ƒxƒ‹‚Ìİ’è
+  # ãƒ©ãƒ™ãƒ«ã®è¨­å®š
   $label = New-Object System.Windows.Forms.Label -Property @{
-    Text = 'ƒeƒLƒXƒg‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢'
-    Size = New-Object System.Drawing.Size(250,20)
-    Location = New-Object System.Drawing.Point(10,30)
+    Text     = 'ãƒ†ã‚­ã‚¹ãƒˆã‚’å…¥åŠ›ã—ã¦ãã ã•ã„'
+    Size     = New-Object System.Drawing.Size(250, 20)
+    Location = New-Object System.Drawing.Point(10, 30)
   }
 
-  # “ü—Íƒ{ƒbƒNƒX‚Ìİ’è
+  # å…¥åŠ›ãƒœãƒƒã‚¯ã‚¹ã®è¨­å®š
   $textBox = New-Object System.Windows.Forms.TextBox -Property @{
-    Font = $FONT
-    Size = New-Object System.Drawing.Size(250,50)
-    Location = New-Object System.Drawing.Point(10,60)
-    Multiline = $true
-    ScrollBars = "Vertical"
+    Font          = $FONT
+    Size          = New-Object System.Drawing.Size(250, 50)
+    Location      = New-Object System.Drawing.Point(10, 60)
+    Multiline     = $true
+    ScrollBars    = "Vertical"
     AcceptsReturn = $true
-    WordWrap = $true
+    WordWrap      = $true
   }
 
-  # ƒL[‚Æƒ{ƒ^ƒ“‚ÌŠÖŒW
+  # ã‚­ãƒ¼ã¨ãƒœã‚¿ãƒ³ã®é–¢ä¿‚
   $form.AcceptButton = $OKButton
   $form.CancelButton = $CancelButton
 
-  # ƒ{ƒ^ƒ““™‚ğƒtƒH[ƒ€‚É’Ç‰Á
+  # ãƒœã‚¿ãƒ³ç­‰ã‚’ãƒ•ã‚©ãƒ¼ãƒ ã«è¿½åŠ 
   $form.Controls.Add($OKButton)
   $form.Controls.Add($CancelButton)
   $form.Controls.Add($label)
   $form.Controls.Add($textBox)
 
-  # ƒtƒH[ƒ€‚ğ•\¦‚³‚¹A‚»‚ÌŒ‹‰Ê‚ğó‚¯æ‚é
+  # ãƒ•ã‚©ãƒ¼ãƒ ã‚’è¡¨ç¤ºã•ã›ã€ãã®çµæœã‚’å—ã‘å–ã‚‹
   $result = $form.ShowDialog()
 
-  # Œ‹‰Ê‚É‚æ‚éˆ—•ªŠò
+  # çµæœã«ã‚ˆã‚‹å‡¦ç†åˆ†å²
   if ($result -eq "OK") {
     return $textBox.Text
-  } else {
+  }
+  else {
     return ""
   }
 }
-# ƒRƒ}ƒ“ƒhƒŒƒbƒg‚ğExport
+# ã‚³ãƒãƒ³ãƒ‰ãƒ¬ãƒƒãƒˆã‚’Export
 Export-ModuleMember -Function Get-TextFromDialog

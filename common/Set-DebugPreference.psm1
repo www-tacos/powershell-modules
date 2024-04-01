@@ -1,38 +1,38 @@
-function Set-DebugPreference {
+ï»¿function Set-DebugPreference {
   <#
   .SYNOPSIS
-  ƒfƒoƒbƒOƒ‚[ƒh‚Ìİ’è
-  
+  ãƒ‡ãƒãƒƒã‚°ãƒ¢ãƒ¼ãƒ‰ã®è¨­å®š
+
   .DESCRIPTION
-  ƒfƒoƒbƒOƒ‚[ƒh‚ğİ’è‚·‚é
-  ƒfƒtƒHƒ‹ƒg‚Å‚Í SilentlyContinue ‚Éİ’è‚³‚ê‚Ä‚¢‚é
-  ƒ^ƒu•âŠ®‚ÅƒfƒoƒbƒOƒ‚[ƒh‚ğİ’è‰Â”\
-  
+  ãƒ‡ãƒãƒƒã‚°ãƒ¢ãƒ¼ãƒ‰ã‚’è¨­å®šã™ã‚‹
+  ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ã¯ SilentlyContinue ã«è¨­å®šã•ã‚Œã¦ã„ã‚‹
+  ã‚¿ãƒ–è£œå®Œã§ãƒ‡ãƒãƒƒã‚°ãƒ¢ãƒ¼ãƒ‰ã‚’è¨­å®šå¯èƒ½
+
   .EXAMPLE
   PS> Set-DebugPreference -Mode Continue
-  ƒfƒoƒbƒOƒ‚[ƒh‚ğ Continue ‚Éİ’è‚·‚é
-  
+  ãƒ‡ãƒãƒƒã‚°ãƒ¢ãƒ¼ãƒ‰ã‚’ Continue ã«è¨­å®šã™ã‚‹
+
   .EXAMPLE
   PS> Set-DebugPreference
-  ƒfƒoƒbƒOƒ‚[ƒh‚ğƒfƒtƒHƒ‹ƒg‚É–ß‚·
-  
-  PARAMETER ‚É‚Í CommonParameters ‚É‚Â‚¢‚Äà–¾‚ªŸè‚É’Ç‰Á‚³‚ê‚é‚Ì‚Å
-  u<CommonParameters> ‚ÍƒTƒ|[ƒg‚µ‚Ä‚¢‚Ü‚¹‚ñv‚Æ‘‚¢‚Ä‚¨‚­‚Æ—Ç‚¢‚©‚à‚µ‚ê‚Ü‚¹‚ñB
-  
+  ãƒ‡ãƒãƒƒã‚°ãƒ¢ãƒ¼ãƒ‰ã‚’ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã«æˆ»ã™
+
+  PARAMETER ã«ã¯ CommonParameters ã«ã¤ã„ã¦èª¬æ˜ãŒå‹æ‰‹ã«è¿½åŠ ã•ã‚Œã‚‹ã®ã§
+  ã€Œ<CommonParameters> ã¯ã‚µãƒãƒ¼ãƒˆã—ã¦ã„ã¾ã›ã‚“ã€ã¨æ›¸ã„ã¦ãŠãã¨è‰¯ã„ã‹ã‚‚ã—ã‚Œã¾ã›ã‚“ã€‚
+
   .LINK
-  ŠÖ˜A‚·‚éƒŠƒ“ƒN‚Ì URL ‚ğ‘‚«‚Ü‚·
+  é–¢é€£ã™ã‚‹ãƒªãƒ³ã‚¯ã® URL ã‚’æ›¸ãã¾ã™
   https://docs.microsoft.com/en-us/powershell/module/Microsoft.PowerShell.Core/About/about_Preference_Variables?view=powershell-7.1#debugpreference
   #>
   Param(
     [Alias('h')][switch] $Help,
     [ValidateSet(
-      "SilentlyContinue",  # ‰½‚à‚È‚µ
-      "Continue",  # Write-Debug‚ğ•\¦‚µ‚Äˆ—‚ği‚ß‚é
-      "Inquire",  # Write-Debug‚ğ•\¦‚µ‚Äˆ—‚ği‚ß‚é‚©•·‚­
-      "Stop"  # Write-Debug‚ğ•\¦‚µ‚Äˆ—‚ğ~‚ß‚é
+      "SilentlyContinue", # ä½•ã‚‚ãªã—
+      "Continue", # Write-Debugã‚’è¡¨ç¤ºã—ã¦å‡¦ç†ã‚’é€²ã‚ã‚‹
+      "Inquire", # Write-Debugã‚’è¡¨ç¤ºã—ã¦å‡¦ç†ã‚’é€²ã‚ã‚‹ã‹èã
+      "Stop"  # Write-Debugã‚’è¡¨ç¤ºã—ã¦å‡¦ç†ã‚’æ­¢ã‚ã‚‹
     )][string] $Mode = "SilentlyContinue"
   )
-  if($Help){ Get-Help Set-DebugPreference; return }
+  if ($Help) { Get-Help Set-DebugPreference; return }
 
   $Global:DebugPreference = $Mode
 }

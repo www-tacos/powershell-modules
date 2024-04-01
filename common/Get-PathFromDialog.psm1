@@ -1,91 +1,92 @@
-# $script:PT_F = 'File'
+ï»¿# $script:PT_F = 'File'
 function Get-PathFromDialog {
   <#
   .SYNOPSIS
-    ƒVƒXƒeƒ€ƒ_ƒCƒAƒƒO‚ğ•\¦‚µ‚ÄƒpƒX‚ğæ“¾‚·‚é
+    ã‚·ã‚¹ãƒ†ãƒ ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’è¡¨ç¤ºã—ã¦ãƒ‘ã‚¹ã‚’å–å¾—ã™ã‚‹
 
   .DESCRIPTION
-    ƒ_ƒCƒAƒƒO‚ğ•\¦‚µA‘I‘ğ‚³‚ê‚½ƒfƒBƒŒƒNƒgƒŠ‚Ü‚½‚Íƒtƒ@ƒCƒ‹‚ÌƒpƒX‚ğ•Ô‚·
-    ƒLƒƒƒ“ƒZƒ‹‚âƒGƒXƒP[ƒv‚ÅƒAƒCƒeƒ€‚ª‘I‘ğ‚³‚ê‚È‚©‚Á‚½ê‡AƒGƒ‰[‚ğ•Ô‚·
+    ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’è¡¨ç¤ºã—ã€é¸æŠã•ã‚ŒãŸãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã¾ãŸã¯ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ã‚’è¿”ã™
+    ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã‚„ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ã§ã‚¢ã‚¤ãƒ†ãƒ ãŒé¸æŠã•ã‚Œãªã‹ã£ãŸå ´åˆã€ã‚¨ãƒ©ãƒ¼ã‚’è¿”ã™
 
   .PARAMETER Help|h
-    ƒwƒ‹ƒv‚ğ•\¦‚·‚é
+    ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã™ã‚‹
 
   .PARAMETER PathType
-    ‘I‘ğ‚·‚éƒpƒX‚Ìƒ^ƒCƒviƒtƒ@ƒCƒ‹/ƒfƒBƒŒƒNƒgƒŠj‚ğ‘I‘ğ‚·‚é
+    é¸æŠã™ã‚‹ãƒ‘ã‚¹ã®ã‚¿ã‚¤ãƒ—ï¼ˆãƒ•ã‚¡ã‚¤ãƒ«/ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªï¼‰ã‚’é¸æŠã™ã‚‹
 
   .PARAMETER CommonParameters
-    ƒTƒ|[ƒg‚µ‚Ä‚¢‚Ü‚¹‚ñ
+    ã‚µãƒãƒ¼ãƒˆã—ã¦ã„ã¾ã›ã‚“
 
   .INPUTS
-    ‚È‚µ
+    ãªã—
 
   .OUTPUTS
-    ƒ_ƒCƒAƒƒO‚Ì•\¦A‘I‘ğ‚³‚ê‚½ƒfƒBƒŒƒNƒgƒŠ‚Ü‚½‚Íƒtƒ@ƒCƒ‹‚Ìƒtƒ‹ƒpƒX
+    ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®è¡¨ç¤ºã€é¸æŠã•ã‚ŒãŸãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã¾ãŸã¯ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ•ãƒ«ãƒ‘ã‚¹
 
   .EXAMPLE
     PS> Get-PathFromDialog -Help
-      ƒwƒ‹ƒv‚ğ•\¦‚·‚é
+      ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã™ã‚‹
 
   .EXAMPLE
     PS> Get-PathFromDialog -PathType File
-      ƒtƒ@ƒCƒ‹‚ğ‘I‘ğ‚·‚éƒ_ƒCƒAƒƒO‚ğ•\¦‚µA‘I‘ğ‚³‚ê‚½ƒtƒ@ƒCƒ‹‚ÌƒpƒX‚ğ“¾‚é
+      ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸æŠã™ã‚‹ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’è¡¨ç¤ºã—ã€é¸æŠã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ã‚’å¾—ã‚‹
 
   .LINK
-    Ql: ˆø—pŒ³
+    å‚è€ƒ: å¼•ç”¨å…ƒ
     https://buralog.jp/powershell-folderbrowserdialog/
 
-    Ql: ‘O–ÊŒÅ’è
+    å‚è€ƒ: å‰é¢å›ºå®š
     https://stackoverflow.com/questions/36714807/how-to-set-a-window-to-be-topmost-in-powershell
   #>
   Param(
     [Alias('h')][switch] $Help,
     [ValidateSet('File', 'Directory')][string] $PathType
   )
-  if($Help){ Get-Help Get-PathFromDialog; return }
+  if ($Help) { Get-Help Get-PathFromDialog; return }
 
   #------------------------------
-  # Mainˆ—
+  # Mainå‡¦ç†
   #------------------------------
   Add-Type -AssemblyName System.Windows.Forms
   switch ($PathType) {
     'File' {
       $d = New-Object System.Windows.Forms.OpenFileDialog -Property @{
         InitialDirectory = $env:HOMEPATH
-        Title = 'ƒtƒ@ƒCƒ‹‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢'
-        CheckFileExists = $true
-        CheckPathExists = $true
-        Multiselect = $false
-        # Filter = 'ƒeƒLƒXƒg (*.txt)|*.txt'
+        Title            = 'ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸æŠã—ã¦ãã ã•ã„'
+        CheckFileExists  = $true
+        CheckPathExists  = $true
+        Multiselect      = $false
+        # Filter = 'ãƒ†ã‚­ã‚¹ãƒˆ (*.txt)|*.txt'
       }
       $property = 'FileName'
     }
     'Directory' {
       $d = New-Object System.Windows.Forms.FolderBrowserDialog -Property @{
-        RootFolder = "MyComputer"
-        Description = 'ƒtƒHƒ‹ƒ_‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢'
+        RootFolder  = "MyComputer"
+        Description = 'ãƒ•ã‚©ãƒ«ãƒ€ã‚’é¸æŠã—ã¦ãã ã•ã„'
       }
       $property = 'SelectedPath'
     }
     Default {
-      throw "Error: –³Œø‚ÈPathType (${PathType})"
+      throw "Error: ç„¡åŠ¹ãªPathType (${PathType})"
     }
   }
 
-  # Å‘O–ÊŒÅ’è‚Å’†‰›‚É•\¦
+  # æœ€å‰é¢å›ºå®šã§ä¸­å¤®ã«è¡¨ç¤º
   $res = $d.ShowDialog(
     (New-Object System.Windows.Forms.Form -Property @{
-      TopMost = $true
+      TopMost       = $true
       StartPosition = "CenterScreen"
     })
   )
 
-  # ƒpƒX‚Ü‚½‚ÍƒGƒ‰[‚ğ•Ô‚·
-  if($res -eq [System.Windows.Forms.DialogResult]::OK) {
+  # ãƒ‘ã‚¹ã¾ãŸã¯ã‚¨ãƒ©ãƒ¼ã‚’è¿”ã™
+  if ($res -eq [System.Windows.Forms.DialogResult]::OK) {
     return $d.$property
-  } else {
-    throw "ƒpƒX‚ª‘I‘ğ‚³‚ê‚Ü‚¹‚ñ‚Å‚µ‚½"
+  }
+  else {
+    throw "ãƒ‘ã‚¹ãŒé¸æŠã•ã‚Œã¾ã›ã‚“ã§ã—ãŸ"
   }
 }
-# ƒRƒ}ƒ“ƒhƒŒƒbƒg‚ğExport
+# ã‚³ãƒãƒ³ãƒ‰ãƒ¬ãƒƒãƒˆã‚’Export
 Export-ModuleMember -Function Get-PathFromDialog

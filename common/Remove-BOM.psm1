@@ -1,41 +1,41 @@
-function Remove-BOM {
+ï»¿function Remove-BOM {
   <#
   .SYNOPSIS
-    BOM•t‚«UTF-8‚Ìƒtƒ@ƒCƒ‹‚ğUTF-8‚É•ÏŠ·‚·‚é
+    BOMä»˜ãUTF-8ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’UTF-8ã«å¤‰æ›ã™ã‚‹
 
   .DESCRIPTION
-    BOM•t‚«UTF-8‚Ìƒtƒ@ƒCƒ‹‚©‚çBOM‚ğíœ‚µUTF-8ƒtƒ@ƒCƒ‹‚É•ÏŠ·‚·‚é
+    BOMä»˜ãUTF-8ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰BOMã‚’å‰Šé™¤ã—UTF-8ãƒ•ã‚¡ã‚¤ãƒ«ã«å¤‰æ›ã™ã‚‹
 
   .PARAMETER Help|h
-    ƒwƒ‹ƒv‚ğ•\¦‚·‚é
+    ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã™ã‚‹
 
   .PARAMETER FilePath
-    BOM•t‚«UTF-8‚Ìƒtƒ@ƒCƒ‹
+    BOMä»˜ãUTF-8ã®ãƒ•ã‚¡ã‚¤ãƒ«
 
   .PARAMETER CommonParameters
-    ƒTƒ|[ƒg‚µ‚Ä‚¢‚Ü‚¹‚ñ
+    ã‚µãƒãƒ¼ãƒˆã—ã¦ã„ã¾ã›ã‚“
 
   .INPUTS
-    ƒtƒ@ƒCƒ‹ƒpƒX
+    ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹
 
   .OUTPUTS
-    •ÏŠ·ƒtƒ@ƒCƒ‹
+    å¤‰æ›ãƒ•ã‚¡ã‚¤ãƒ«
 
   .EXAMPLE
     PS> Remove-BOM -Help
-      ƒwƒ‹ƒv‚ğ•\¦‚·‚é
+      ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã™ã‚‹
 
   .EXAMPLE
     PS> Remove-BOM -Path ~/Downloads/sample_utf8bom.txt
-      BOM‚È‚µ‚ÌUTF-8Œ`®‚Å ~/Downloads/sample_utf8bom.txt ‚ğã‘‚«‚·‚é
+      BOMãªã—ã®UTF-8å½¢å¼ã§ ~/Downloads/sample_utf8bom.txt ã‚’ä¸Šæ›¸ãã™ã‚‹
 
   .EXAMPLE
     PS> Remove-BOM -Path ~/Downloads/sample_utf8bom.txt -BackUp
-      BOM‚È‚µ‚ÌUTF-8Œ`®‚Å ~/Downloads/sample_utf8bom.txt ‚ğã‘‚«‚·‚é
-      Œ³‚Ìƒtƒ@ƒCƒ‹‚Í ~/Downloads/sample_utf8bomk.yyyymmdd_hhmmss.txt ‚ÅƒoƒbƒNƒAƒbƒv‚·‚é
+      BOMãªã—ã®UTF-8å½¢å¼ã§ ~/Downloads/sample_utf8bom.txt ã‚’ä¸Šæ›¸ãã™ã‚‹
+      å…ƒã®ãƒ•ã‚¡ã‚¤ãƒ«ã¯ ~/Downloads/sample_utf8bomk.yyyymmdd_hhmmss.txt ã§ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã™ã‚‹
 
   .LINK
-    Ql: <QlƒTƒCƒgŠT—v>
+    å‚è€ƒ: <å‚è€ƒã‚µã‚¤ãƒˆæ¦‚è¦>
     <URL>
   #>
   Param(
@@ -43,15 +43,15 @@ function Remove-BOM {
     [string] $FilePath,
     [switch] $BackUp
   )
-  if($Help){ Get-Help Remove-BOM; return }
+  if ($Help) { Get-Help Remove-BOM; return }
 
   #------------------------------
-  # Mainˆ—
+  # Mainå‡¦ç†
   #------------------------------
-  if(-not (Test-Path $FilePath -PathType Leaf)) {
-    throw "Error: ƒtƒ@ƒCƒ‹‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢Bi${FilePath}j"
+  if (-not (Test-Path $FilePath -PathType Leaf)) {
+    throw "Error: ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚ï¼ˆ${FilePath}ï¼‰"
   }
-  if($BackUp) {
+  if ($BackUp) {
     $_f = Get-Item $FilePath
     $_ts = (Get-Date).ToString("yyyyMMdd_HHmmss")
     $_bkup = "$($_f.DirectoryName)/$($_f.BaseName)_${_ts}$($_f.Extension)"
@@ -61,5 +61,5 @@ function Remove-BOM {
   $UTF8_NO_BOM_ENCODING = New-Object System.Text.UTF8Encoding($False)
   [System.IO.File]::WriteAllLines($FilePath, $text, $UTF8_NO_BOM_ENCODING)
 }
-# ƒRƒ}ƒ“ƒhƒŒƒbƒg‚ğExport
+# ã‚³ãƒãƒ³ãƒ‰ãƒ¬ãƒƒãƒˆã‚’Export
 Export-ModuleMember -Function Remove-BOM

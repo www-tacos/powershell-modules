@@ -1,99 +1,99 @@
-function Show-MsgBox {
+ï»¿function Show-MsgBox {
   <#
   .SYNOPSIS
-    <ƒRƒ}ƒ“ƒh‚ÌŠT—v>
+    <ã‚³ãƒžãƒ³ãƒ‰ã®æ¦‚è¦>
 
   .DESCRIPTION
-    <ƒRƒ}ƒ“ƒh‚Ìà–¾>
+    <ã‚³ãƒžãƒ³ãƒ‰ã®èª¬æ˜Ž>
 
   .PARAMETER Help|h
-    ƒwƒ‹ƒv‚ð•\Ž¦‚·‚é
+    ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã™ã‚‹
 
   .PARAMETER <PARAM>
-    <ƒpƒ‰ƒ[ƒ^‚Ìà–¾>
+    <ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®èª¬æ˜Ž>
 
   .PARAMETER CommonParameters
-    ƒTƒ|[ƒg‚µ‚Ä‚¢‚Ü‚¹‚ñ
+    ã‚µãƒãƒ¼ãƒˆã—ã¦ã„ã¾ã›ã‚“
 
   .INPUTS
-    <“ü—Í‚ÌŠT—v>
+    <å…¥åŠ›ã®æ¦‚è¦>
 
   .OUTPUTS
-    <o—Í‚ÌŠT—v>
+    <å‡ºåŠ›ã®æ¦‚è¦>
 
   .EXAMPLE
     PS> Show-MsgBox
-      <ƒRƒ}ƒ“ƒh‚Ì‚ÝŽÀsŽž‚Ìˆ—“à—e>
+      <ã‚³ãƒžãƒ³ãƒ‰ã®ã¿å®Ÿè¡Œæ™‚ã®å‡¦ç†å†…å®¹>
 
   .EXAMPLE
     PS> Show-MsgBox -Help
-      ƒwƒ‹ƒv‚ð•\Ž¦‚·‚é
+      ãƒ˜ãƒ«ãƒ—ã‚’è¡¨ç¤ºã™ã‚‹
 
   .EXAMPLE
     PS> Show-MsgBox <PARAM>
-      <ƒpƒ‰ƒ[ƒ^‚ðŽw’è‚µ‚½‚Æ‚«‚Ìˆ—“à—e>
+      <ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’æŒ‡å®šã—ãŸã¨ãã®å‡¦ç†å†…å®¹>
 
   .LINK
-    ŽQl: <ŽQlƒTƒCƒgŠT—v>
+    å‚è€ƒ: <å‚è€ƒã‚µã‚¤ãƒˆæ¦‚è¦>
     <URL>
   #>
   Param(
     [Alias('h')][switch] $Help
   )
-  if($Help){ Get-Help Show-MsgBox; return }
+  if ($Help) { Get-Help Show-MsgBox; return }
 
   #------------------------------
-  # Mainˆ—
+  # Mainå‡¦ç†
   #------------------------------
   Add-Type -AssemblyName System.Windows.Forms
-  # ƒtƒHƒ“ƒg
+  # ãƒ•ã‚©ãƒ³ãƒˆ
   $ValidFont = @(
     "Noto Sans Mono CJK JP Regular",
     "Noto Sans CJK JP Regular",
     "HackGenNerd",
     "Ricty Diminished",
-    "Œ¹ƒmŠpƒSƒVƒbƒN Code JP N",
-    "ƒƒCƒŠƒI",
-    "‚l‚r ƒSƒVƒbƒN"
-   ) | Where-Object {
+    "æºãƒŽè§’ã‚´ã‚·ãƒƒã‚¯ Code JP N",
+    "ãƒ¡ã‚¤ãƒªã‚ª",
+    "ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯"
+  ) | Where-Object {
     $_ -in [System.Drawing.FontFamily]::Families
   }
   $FONT = New-Object System.Drawing.Font($ValidFont[0], 12)
 
   $ok = New-Object System.Windows.Forms.Button -Property @{
-    Text = "OK"
-    DialogResult = "OK"  # —ñ‹“Žq–¼FNone, OK, Cancel, Abort, Retry, Ignore, Yes, No
-    Size = New-Object System.Drawing.Size(10,10)
-    Location = New-Object System.Drawing.Point(-20,-20)
+    Text         = "OK"
+    DialogResult = "OK"  # åˆ—æŒ™å­åï¼šNone, OK, Cancel, Abort, Retry, Ignore, Yes, No
+    Size         = New-Object System.Drawing.Size(10, 10)
+    Location     = New-Object System.Drawing.Point(-20, -20)
   }
 
   $content = ((Get-Content "${PSScriptRoot}/Restart-IME.psm1") -join "`r`n")
-  # Form‚Ìì¬
+  # Formã®ä½œæˆ
   $form = New-Object System.Windows.Forms.Form -Property @{
-    Text = "Message"
-    Topmost = $true
-    StartPosition = "CenterScreen"
-    SizeGripStyle = "Hide"
+    Text            = "Message"
+    Topmost         = $true
+    StartPosition   = "CenterScreen"
+    SizeGripStyle   = "Hide"
     FormBorderStyle = "FixedSingle"
-    MinimizeBox = $false
-    MaximizeBox = $false
-    AutoSize = $true
-    AutoSizeMode = "GrowAndShrink"
-    CancelButton = $ok
+    MinimizeBox     = $false
+    MaximizeBox     = $false
+    AutoSize        = $true
+    AutoSizeMode    = "GrowAndShrink"
+    CancelButton    = $ok
   }
 
-  # ƒ‰ƒxƒ‹‚ÌÝ’è
+  # ãƒ©ãƒ™ãƒ«ã®è¨­å®š
   $txt = New-Object System.Windows.Forms.Label -Property @{
-    Text = "${content}"
-    Font = $FONT
+    Text     = "${content}"
+    Font     = $FONT
     AutoSize = $true
     Location = New-Object System.Drawing.Point(0, 0)
   }
-  # ƒ{ƒ^ƒ““™‚ðƒtƒH[ƒ€‚É’Ç‰Á
+  # ãƒœã‚¿ãƒ³ç­‰ã‚’ãƒ•ã‚©ãƒ¼ãƒ ã«è¿½åŠ 
   $form.Controls.Add($txt)
   $form.Controls.Add($ok)
-  # ƒtƒH[ƒ€‚ð•\Ž¦‚³‚¹‚é
+  # ãƒ•ã‚©ãƒ¼ãƒ ã‚’è¡¨ç¤ºã•ã›ã‚‹
   $form.ShowDialog() > $null
 }
-# ƒRƒ}ƒ“ƒhƒŒƒbƒg‚ðExport
+# ã‚³ãƒžãƒ³ãƒ‰ãƒ¬ãƒƒãƒˆã‚’Export
 Export-ModuleMember -Function Show-MsgBox
