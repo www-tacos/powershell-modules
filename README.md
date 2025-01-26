@@ -11,7 +11,6 @@
 | `common`                    | PowerShellのどのバージョンでも実行可能なスクリプトモジュール     |
 | `Desktop`                   | Windows PowerShell 5.1まででしか実行できないスクリプトモジュール |
 | `Core`                      | PowerShell 6.0以降でしか実行できないスクリプトモジュール         |
-| `dev`                       | 開発途中のスクリプトモジュール                                   |
 | `.vscode/ps1.code-snippets` | VSCode用のモジュールテンプレートのスニペット                     |
 | `import.ps1`                | モジュールを一括で読み込むスクリプト                             |
 
